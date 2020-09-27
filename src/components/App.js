@@ -9,8 +9,8 @@ import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
   const [part, setPart] = useState(0)
-   const admin = localStorage.getItem("admin");
-   
+  const admin = localStorage.getItem("admin");
+
   if (!admin) {
     return (
       <Brouter>

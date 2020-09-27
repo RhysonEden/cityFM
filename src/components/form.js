@@ -4,7 +4,7 @@ import moment from "moment";
 const Form = ({part, setPart}) => {
   const [labor, setLabor] = useState("");
   const [travel, setTravel] = useState("");
-  const [partprice, setPartPrice] = useState("");
+  // const [partprice, setPartPrice] = useState("");
   const [finalRate, setFinalRate] = useState("");
   const [extraCostOne, setExtraCostOne] = useState(0);
   const [numberOne, setNumberOne] = useState(0);
@@ -15,11 +15,10 @@ const Form = ({part, setPart}) => {
   const cancelCourse = () => {
     setLabor("");
     setTravel("");
-    setPartPrice("");
+    // setPartPrice("");
     setExtraCostOne(0);
     setRate(90);
     setNumberOne(0);
-    console.log("shouldn't run");
     document
       .querySelectorAll("input[type=checkbox]")
       .forEach((el) => (el.checked = false));
@@ -29,7 +28,7 @@ const Form = ({part, setPart}) => {
     event.preventDefault();
     let consumables = numberOne * 10;
     let P1 = Number(extraCostOne);
-    let partCost = Number(partprice)
+    let partCost = part
     let laborTotal = labor * rate
     let travelTotal = travel * rate
     let rateSum = laborTotal + travelTotal
@@ -96,9 +95,9 @@ const Form = ({part, setPart}) => {
     setTravel(event.target.value);
   };
 
-  const changePartPrice = (event) => {
-    setPartPrice(event.target.value);
-  };
+  // const changePartPrice = (event) => {
+  //   setPartPrice(event.target.value);
+  // };
   if (!user) {
     return <div className="pleaselogin">Please Log In To Continue</div>;
   } else {
@@ -127,9 +126,9 @@ const Form = ({part, setPart}) => {
           <input
             className="form-input"
             id="tags"
-            value={part}
+            value={"$" + part}
             placeholder="Enter Parts Price"
-            onChange={changePartPrice}
+            // onChange={changePartPrice}
           ></input>
           <div className="check">
             <span>P1</span>
