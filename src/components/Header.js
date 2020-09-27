@@ -50,29 +50,9 @@ function Header({ searchInput, setSearchInput, setCompany }) {
         )}
         {user ? (
           <>
-            {/* <form method="get" action="">
-              <div className="tb">
-                <div className="td">
-                  <input
-                    className="search"
-                    value={searchInput}
-                    onChange={(event) => {
-                      setSearchInput(event.target.value);
-                    }}
-                    type="text"
-                    placeholder="Search Part Numbers"
-                    required
-                  />
-                  <button className="thecartbtn" onClick={searchSubmit}>
-                    Submit
-                  </button>
-                </div>
-                <div className="td" id="s-cover"></div>
-              </div>
-            </form> */}
             <div className="buttonz">
               <button className="thecartbtn">
-                <a href="/company">CoD customers</a>
+                <a href="/company">Part Pricing</a>
               </button>
               <button className="thecartbtn">
                 <a href="/calculator">Calculator</a>

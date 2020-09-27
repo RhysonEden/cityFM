@@ -8,9 +8,9 @@ import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [parts, setCompany] = useState([]);
-
-  const admin = localStorage.getItem("admin");
+  const [part, setPart] = useState(0)
+   const admin = localStorage.getItem("admin");
+   
   if (!admin) {
     return (
       <Brouter>
@@ -24,6 +24,8 @@ const App = () => {
               component={Form}
               searchInput={searchInput}
               setSearchInput={setSearchInput}
+              part={part}
+              setPart={setPart}
             />
             <Company
               path="/company"
@@ -31,8 +33,8 @@ const App = () => {
               component={Company}
               searchInput={searchInput}
               setSearchInput={setSearchInput}
-              parts={parts}
-              setCompany={setCompany}
+              part={part}
+              setPart={setPart}
             />
           </Switch>{" "}
         </div>
@@ -51,6 +53,8 @@ const App = () => {
               component={Form}
               searchInput={searchInput}
               setSearchInput={setSearchInput}
+              part={part}
+              setPart={setPart}
             />
             <Company
               path="/company"
@@ -58,6 +62,8 @@ const App = () => {
               component={Company}
               searchInput={searchInput}
               setSearchInput={setSearchInput}
+              part={part}
+              setPart={setPart}
             />
           </Switch>{" "}
         </div>

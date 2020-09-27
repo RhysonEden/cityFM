@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { getCompanies, getPart } from "../api/company";
+import {  getPart } from "../api/company";
 
-const Company = ({ searchInput, setSearchInput }) => {
-  const [parts, setCompany] = useState([]);
+const Company = ({ searchInput, setSearchInput,part, setPart }) => {
   const [message, setMessage] = useState("");
+  const [partlisting, setPartListing] = useState([])
   const user = localStorage.getItem("user");
 
+  const setPrice = (event) => {
+    event.preventDefault();
+    console.log(event.target.value)
+    setPart(event.target.value)
+  }
+   
+  const testButton = (event) => {
+    event.preventDefault()
+    console.log(part)
+  }
   const searchSubmit = (event) => {
-    setCompany([]);
+    setPartListing([]);
     event.preventDefault();
     let input = searchInput.toUpperCase();
     getPart(input).then((response) => {
@@ -16,7 +26,7 @@ const Company = ({ searchInput, setSearchInput }) => {
         setMessage("Nothing found, please try again");
       } else {
         setMessage("");
-        setCompany(response.data.part);
+        setPartListing(response.data.part);
       }
     });
   };
@@ -42,13 +52,16 @@ const Company = ({ searchInput, setSearchInput }) => {
               <button className="thecartbtn" onClick={searchSubmit}>
                 Submit
               </button>
+              <button className="thecartbtn" onClick={testButton}>
+                Test
+              </button>
             </div>
             <div className="td" id="s-cover"></div>
           </div>
         </form>
         <div className="page">
           <div class="allco">{message}</div>
-          {parts.map((part, index) => (
+          {partlisting.map((part, index) => (
             <div className="allco">
               <div id={index} className="name">
                 Part Number:{part.number}
@@ -57,9 +70,9 @@ const Company = ({ searchInput, setSearchInput }) => {
               <div className="address">Description:{part.descr}</div>
               <br />
               <div className="phone">Price:${part.price}</div> <br />
-              {/* <button className="thecartbtncart">
+              <button className="thecartbtncart" onClick={setPrice} value={part.price}>
                 Click to add ${part.price} to total
-              </button> */}
+              </button>
             </div>
           ))}
         </div>
