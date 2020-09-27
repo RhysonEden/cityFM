@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { loginUser, registerUser } from "../api/index";
 import moment from "moment";
 
-function Modal() {
+function Login() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [user, setUser] = React.useState(localStorage.getItem("user"));
@@ -57,4 +57,4 @@ function Modal() {
     </div>
   );
 }
-export default Modal;
+export default Login;

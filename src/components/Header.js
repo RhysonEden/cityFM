@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getPart } from "../api/company";
-import Modal from "./Login";
+import Login from "./Login";
 
 function logout() {
   localStorage.clear();
-  window.location.reload(true);
+  window.location.reload();
 }
 
 function Header({ searchInput, setSearchInput, setCompany }) {
