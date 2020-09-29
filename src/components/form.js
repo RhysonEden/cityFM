@@ -1,24 +1,34 @@
 import React, { useState } from "react";
 import moment from "moment";
 
+
 const Form = ({part, setPart}) => {
   const [labor, setLabor] = useState("");
   const [travel, setTravel] = useState("");
-  // const [partprice, setPartPrice] = useState("");
-  const [finalRate, setFinalRate] = useState("");
+  const [finalRate, setFinalRate] = useState(0);
   const [extraCostOne, setExtraCostOne] = useState(0);
   const [numberOne, setNumberOne] = useState(0);
-  const [rate, setRate] = useState(90);
+  const [laborRate, setLaborRate] = useState(90);
+  const [travelRate, setTravelRate] = useState(100)
+  const [laborTotal, setLaborTotal] = useState(0)
+  const [travelTotal, setTravelTotal] = useState(0)
   const [laptop, setLaptop] = useState(0);
+  const [consumables, setConsumables] = useState(0)
+  let ticket = localStorage.getItem("ticket");
   const user = localStorage.getItem("user");
 
   const cancelCourse = () => {
     setLabor("");
     setTravel("");
-    // setPartPrice("");
+    setPart(0)
     setExtraCostOne(0);
-    setRate(90);
+    setLaborRate(90);
+    setTravelRate(100);
     setNumberOne(0);
+    setLaborTotal(0);
+    setTravelTotal(0);
+    setLaptop(0)
+    setFinalRate(0)
     document
       .querySelectorAll("input[type=checkbox]")
       .forEach((el) => (el.checked = false));
@@ -26,30 +36,34 @@ const Form = ({part, setPart}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let consumables = numberOne * 10;
+        let consumables = numberOne * 10;
     let P1 = Number(extraCostOne);
-    let partCost = part
-    let laborTotal = labor * rate
-    let travelTotal = travel * rate
-    let rateSum = laborTotal + travelTotal
-    console.log(part)
+    let partCost = Number(part)
+       let rateSum = laborTotal + travelTotal
     let hourlyRate =
       rateSum + partCost + P1 + consumables + laptop;
     let preRoundRate = Math.round(hourlyRate * 100) / 100;
     let roundedRate = preRoundRate.toFixed(2);
     setFinalRate(roundedRate);
-    cancelCourse();
-  };
+   };
 
+   const handleEmail = () => {
+    //  event.preventDefault();
+     ticket = localStorage.removeItem("ticket")
+     window.location.reload(false);
+   }
+    
   const addNumberOne = (event) => {
     event.preventDefault();
     setNumberOne(numberOne + 1);
+    setConsumables((numberOne + 1) * 10)
   };
 
   const minusNumberOne = (event) => {
     event.preventDefault();
     if (numberOne >= 1) {
       setNumberOne(numberOne - 1);
+      setConsumables((numberOne - 1)  * 10)
     } else {
       setNumberOne(numberOne);
     }
@@ -65,17 +79,26 @@ const Form = ({part, setPart}) => {
 
   const handleCheckBoxTwo = (checked) => {
     if (checked) {
-      setRate(125);
+      setLaborRate(125);
+      setTravelRate(150)
+      setLaborTotal(labor * 125)
+      setTravelTotal(travel * 150)
     } else {
-      setRate(90);
+      setLaborRate(90);
+      setTravelRate(100)
     }
   };
 
   const handleCheckBoxThree = (checked) => {
     if (checked) {
-      setRate(125);
+      setLaborRate(180);
+      setTravelRate(180)
+      setLaborTotal(labor * 180)
+      setTravelTotal(travel * 180)
     } else {
-      setRate(90);
+      setLaborRate(90);
+      setTravelRate(100)
+
     }
   };
 
@@ -89,18 +112,19 @@ const Form = ({part, setPart}) => {
 
   const changeLabor = (event) => {
     setLabor(event.target.value);
+    setLaborTotal(event.target.value * laborRate)
   };
 
   const changeTravel = (event) => {
     setTravel(event.target.value);
+    setTravelTotal(event.target.value * travelRate)
   };
 
-  // const changePartPrice = (event) => {
-  //   setPartPrice(event.target.value);
-  // };
   if (!user) {
     return <div className="pleaselogin">Please Log In To Continue</div>;
-  } else {
+  } else if (!ticket) {
+    return <div className="pleaselogin">Please enter Ticket Number to Continue</div>
+  }else {
     return (
       <div className="page">
         <form id="create">
@@ -128,7 +152,6 @@ const Form = ({part, setPart}) => {
             id="tags"
             value={"$" + part}
             placeholder="Enter Parts Price"
-            // onChange={changePartPrice}
           ></input>
           <div className="check">
             <span>P1</span>
@@ -141,17 +164,30 @@ const Form = ({part, setPart}) => {
             <input type="checkbox" onChange={handleCheckBoxFour}></input>
           </div>
           <div className="check">
+            <h4>Consumables</h4>
             <button className="thecartbtnminus" onClick={minusNumberOne}>subtract</button>
            <input className="miscitems" type="numeric" value={numberOne} />
            <button className="thecartbtnadd" onClick={addNumberOne}>add</button>
           </div>
-          <button className="submit" onClick={handleSubmit}>
-            Submit
-          </button>
         </form>
         <div className="finalrate">
-          <h1>Trip Total = {"$" + finalRate}</h1>
+          <h1 className='itemized'>Labor Total ={'$' + laborTotal}</h1>
+          <h1 className='itemized'>Travel Total ={'$' + travelTotal}</h1>
+          <h1 className='itemized'>Parts Total ={'$' + part}</h1>
+          <h1 className='itemized'>Consumables ={'$' + consumables}</h1>
+          <h1 className='itemized'>Laptop Total ={'$' + laptop}</h1>
+          <h1 className='itemized'>Trip Total = {"$" + finalRate}</h1>
         </div>
+        <button className="thecartbtn" onClick={cancelCourse}>
+            Clear
+          </button>
+
+          <button className="thecartbtn" onClick={handleSubmit}>
+          Submit
+          </button>
+          <button className="thecartbtn" onClick={handleEmail}>
+          Email
+          </button>
       </div>
     );
   }

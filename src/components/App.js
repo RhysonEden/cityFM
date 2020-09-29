@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import Form from "./form";
 import Company from "./company";
 import Header from "./Header";
@@ -8,7 +8,7 @@ import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [part, setPart] = useState(0)
+  const [part, setPart] = useState(["0"])
   const admin = localStorage.getItem("admin");
 
   if (!admin) {

@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { getPart } from "../api/company";
-import Login from "./Login";
+import {Link} from "react-router-dom"
 
 function logout() {
   localStorage.clear();
   window.location.reload();
 }
 
-function Header({ searchInput, setSearchInput, setCompany }) {
+const prevent = (event) => {
+  event.preventDefault()
+}
+function Header({ searchInput, setSearchInput, part, setPart }) {
   const [user, setUser] = React.useState(localStorage.getItem("user"));
   const main = window.localStorage.getItem("admin");
-  const [admin, setAdmin] = useState(main);
+  const [ticket, setTicket] = useState("")
 
-  useEffect(() => {
-    setAdmin(main);
-  });
-
-  // const searchSubmit = (event) => {
-  //   event.preventDefault();
-  //   getPart(searchInput).then((response) => {
-  //     console.log(response.data.part);
-  //     setCompany(response.data.part);
-  //   });
-  // };
+const ticketButton = () => {
+  console.log(ticket.length)
+  if (ticket.length !== 11) {
+    alert("Incorrect Ticket Number")
+  } else {
+  localStorage.setItem("ticket", ticket)
+  window.location.reload(false);
+  }
+}
 
   return (
     <>
       <div className="header">
         <h1 className="cod">City FM Calculator</h1>
-
+        <button className="thecartbtncall">
+        <a href="tel:9043940774">Call CityFM</a>
+        </button>
         <br />
         {user ? (
           <>
@@ -50,17 +52,35 @@ function Header({ searchInput, setSearchInput, setCompany }) {
         )}
         {user ? (
           <>
-            <div className="buttonz">
-              <button className="thecartbtn">
-                <a href="/company">Part Pricing</a>
-              </button>
-              <button className="thecartbtn">
-                <a href="/calculator">Calculator</a>
-              </button>
-              <button className="thecartbtn">
-                <a href="/">Main</a>
-              </button>
+          <div className="tickets">
+            <input
+                className="search"
+                value={ticket}
+                onChange={(event) => {
+                  setTicket(event.target.value);
+                }}
+                type="text"
+                placeholder="Enter Ticket Number"
+                required
+              />
+              <button className="thecartbtn" onClick={ticketButton}>Submit Ticket</button>
             </div>
+          <Link to="/company">
+            <button type="button" className="thecartbtn">
+              Parts
+            </button>
+          </Link>
+          <Link to="/calculator">
+            <button type="button" className="thecartbtn">
+              Calculator
+            </button>
+          </Link>
+          <Link to="/">
+            <button type="button" className="thecartbtn">
+              Main
+            </button>
+          </Link>
+
           </>
         ) : (
           <div className="makethataccount">

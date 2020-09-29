@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from "react";
 import {  getPart } from "../api/company";
 
-const Company = ({ searchInput, setSearchInput,part, setPart }) => {
+let ticket = localStorage.getItem("ticket");
+
+
+const Company = ({ searchInput, setSearchInput, part, setPart }) => {
   const [message, setMessage] = useState("");
   const [partlisting, setPartListing] = useState([])
+  const [partname, setPartName] = useState("")
+  const [partprice, setPartPrice] = useState("")
   const user = localStorage.getItem("user");
 
   const setPrice = (event) => {
     event.preventDefault();
     console.log(event.target.value)
-    setPart(event.target.value)
+    console.log(event.target.name)
+    setPartPrice(part)
+    setPartName(event.target.name + " " + partname)
+    setPart(Number(part) + Number(event.target.value))
   }
+
+  
    
   const testButton = (event) => {
     event.preventDefault()
     console.log(part)
+    console.log(partname)
   }
   const searchSubmit = (event) => {
     setPartListing([]);
@@ -33,7 +44,9 @@ const Company = ({ searchInput, setSearchInput,part, setPart }) => {
 
   if (!user) {
     return <div className="pleaselogin">Please Log In To Continue</div>;
-  } else {
+  } else if (!ticket) {
+    return <div className="pleaselogin">Please enter Ticket Number to Continue</div>
+  }else {
     return (
       <>
         <form method="get" action="">
@@ -55,6 +68,7 @@ const Company = ({ searchInput, setSearchInput,part, setPart }) => {
               <button className="thecartbtn" onClick={testButton}>
                 Test
               </button>
+              <div>{part}</div>
             </div>
             <div className="td" id="s-cover"></div>
           </div>
@@ -70,7 +84,7 @@ const Company = ({ searchInput, setSearchInput,part, setPart }) => {
               <div className="address">Description:{part.descr}</div>
               <br />
               <div className="phone">Price:${part.price}</div> <br />
-              <button className="thecartbtncart" onClick={setPrice} value={part.price}>
+              <button className="thecartbtncart" onClick={setPrice} value={part.price} name={part.number}>
                 Click to add ${part.price} to total
               </button>
             </div>

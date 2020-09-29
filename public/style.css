@@ -93,6 +93,9 @@ body {
   width: 100%;
 }
 
+.tickets {
+  width: 100%;
+}
 .miscitems {
   justify-content: space-around;
   width: 15px;
@@ -160,6 +163,33 @@ body {
   position: sticky;
   top: 0;
 }
+.finalrate { 
+  border: 1px solid black;
+  align-items: flex-start;
+}
+
+.itemized {
+  text-align: justify;
+}
+
+.thecartbtncall {
+  
+  border: 1px solid black;
+  box-shadow: inset 0px 1px 0px 0px #a4e271;
+  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+  background-color: #89c403;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 2px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528009;
+}
 
 .userNameLogout,
 .thecartbtn {
@@ -194,7 +224,7 @@ body {
 }
 .userNameLog {
   background: #fff957;
-  margin: 25px;
+  margin: 5px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -223,7 +253,7 @@ button {
 @media only screen and (max-device-width: 480px) {
   .header {
     width: 100%;
-    height: 150px;
+    height: 175px;
     border: 1px solid #eb521f;
     align-items: center;
     justify-content: center;
@@ -254,6 +284,26 @@ button {
     text-decoration: none;
     text-shadow: 0px 1px 0px #528009;
   }
+
+.thecartbtncall {
+  
+    border: 1px solid black;
+    box-shadow: inset 0px 1px 0px 0px #a4e271;
+    background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+    background-color: #89c403;
+    border-radius: 6px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 2px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528009;
+  }
+
 
   .miscitems {
     width: 15px;
@@ -314,7 +364,7 @@ button {
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
-    height: 150px;
+    /* height: 250px; */
     background: #ff6633;
     position: sticky;
     top: 0;
