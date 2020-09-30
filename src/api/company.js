@@ -11,9 +11,7 @@ export async function getCompanies() {
 
 export async function getPart(partNumber) {
   try {
-    console.log("part 14", partNumber);
     const part = await axios.get(`/api/company/parts/${partNumber}`);
-    console.log("part16", part.data.part);
     return part;
   } catch (error) {
     throw error;

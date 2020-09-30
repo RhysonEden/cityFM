@@ -3,6 +3,7 @@ const usersRouter = apiRouter.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const {
+  getAdminByUsername,
   createUser,
   getUserByUsername,
   getUser,
@@ -27,6 +28,16 @@ usersRouter.get("/getUserInfo", async (req, res, next) => {
     if (req.user) {
       res.send({ user: req.user });
     }
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
+
+usersRouter.get("/:id", async (req, res, next) => {
+  const admin = req.params.id;
+  try {
+    const name = await getAdminByUsername(admin);
+    res.send({ name });
   } catch ({ name, message }) {
     next({ name, message });
   }

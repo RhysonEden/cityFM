@@ -8,7 +8,6 @@ export async function loginUser(username, password) {
     });
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
-    localStorage.setItem("admin", JSON.stringify(data.user.admin));
     localStorage.setItem("id", data.user.id);
     return data;
   } catch (error) {
@@ -64,6 +63,18 @@ export async function getUserInfo() {
       },
     });
     return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getAdminInfo(username) {
+  try {
+    const data = await axios.get(`/api/users/${username}`, {
+      username
+    });
+
+    return data;
   } catch (error) {
     throw error;
   }

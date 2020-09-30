@@ -13,8 +13,6 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
 
   const setPrice = (event) => {
     event.preventDefault();
-    console.log(event.target.value)
-    console.log(event.target.name)
     setPartPrice(part)
     setPartName(event.target.name + " " + partname)
     setPart(Number(part) + Number(event.target.value))
@@ -27,12 +25,12 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
     console.log(part)
     console.log(partname)
   }
+
   const searchSubmit = (event) => {
     setPartListing([]);
     event.preventDefault();
     let input = searchInput.toUpperCase();
     getPart(input).then((response) => {
-      console.log(response.data.part);
       if (response.data.part.length === 0) {
         setMessage("Nothing found, please try again");
       } else {
@@ -49,9 +47,10 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
   }else {
     return (
       <>
+      <div>
         <form method="get" action="">
-          <div className="tb">
-            <div className="td">
+          <div className="tbprice">
+            <div className="tdprice">
               <input
                 className="search"
                 value={searchInput}
@@ -73,10 +72,12 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
             <div className="td" id="s-cover"></div>
           </div>
         </form>
+      </div>
+      <div>  
         <div className="page">
-          <div class="allco">{message}</div>
+          <div className="allco">{message}</div>
           {partlisting.map((part, index) => (
-            <div className="allco">
+            <div className="allco" value={index}>
               <div id={index} className="name">
                 Part Number:{part.number}
               </div>
@@ -90,6 +91,7 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
             </div>
           ))}
         </div>
+      </div>
       </>
     );
   }

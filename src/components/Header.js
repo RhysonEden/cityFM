@@ -1,28 +1,39 @@
 import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom"
+import {getAdminInfo} from "../api/index"
 
 function logout() {
   localStorage.clear();
   window.location.reload();
 }
 
-const prevent = (event) => {
-  event.preventDefault()
-}
-function Header({ searchInput, setSearchInput, part, setPart }) {
+function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
   const [user, setUser] = React.useState(localStorage.getItem("user"));
-  const main = window.localStorage.getItem("admin");
   const [ticket, setTicket] = useState("")
 
 const ticketButton = () => {
-  console.log(ticket.length)
   if (ticket.length !== 11) {
     alert("Incorrect Ticket Number")
   } else {
   localStorage.setItem("ticket", ticket)
-  window.location.reload(false);
+  window.location.reload();
   }
 }
+
+async function getAdmin() {
+  const username = localStorage.getItem("user") 
+  const response = await getAdminInfo(username)
+  const resp = response.data.name
+  resp.forEach(function(item) {
+  for (const [key, value] of Object.entries(item)) {
+    setMain(`${value}`);
+  }
+})
+}
+
+useEffect(() => {
+getAdmin();
+}, []);
 
   return (
     <>
@@ -45,9 +56,11 @@ const ticketButton = () => {
           </>
         ) : (
           <div className="fullwidth">
+            <Link to="/login">
             <button className="account">
-              <a href="/login">Log in!</a>
+              Log in!
             </button>
+            </Link>
           </div>
         )}
         {user ? (
@@ -76,7 +89,7 @@ const ticketButton = () => {
             </button>
           </Link>
           <Link to="/">
-            <button type="button" className="thecartbtn">
+            <button type="button" className="thecartbtn" >
               Main
             </button>
           </Link>

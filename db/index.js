@@ -28,6 +28,22 @@ async function createUser({ username, password, email, admin }) {
   }
 }
 
+async function getAdminByUsername(username) {
+  try {
+    const { rows } = await client.query(
+      `
+      SELECT admin 
+      FROM users 
+      WHERE username=$1
+    `,
+      [username]
+    );
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getUserByUsername(username) {
   try {
     const { rows } = await client.query(
@@ -134,13 +150,11 @@ async function getCompaniesById(id) {
 
 async function searchPartsNumber(partNumber) {
   try {
-    console.log("searching", partNumber);
     const { rows } = await client.query(`
     SELECT *
     FROM parts
     WHERE number LIKE '%${partNumber}%'
     `);
-    console.log(rows);
     return rows;
   } catch (error) {
     throw error;
@@ -178,4 +192,5 @@ module.exports = {
   updateUser,
   adminUpdate,
   searchPartsNumber,
+  getAdminByUsername
 };

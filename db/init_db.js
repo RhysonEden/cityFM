@@ -7,7 +7,7 @@ const {
   createUser,
   getUsersByID,
   getAllCompanies,
-  getCompaniesById,
+  getAdminByUsername,
   getUserByUsername,
 } = require("./index");
 
@@ -116,9 +116,11 @@ async function testDB() {
     const userJames = await getUserByUsername("james");
     const userChris = await getUserByUsername("chris");
     const users = await getAllUsers();
+    const admin = await getAdminByUsername('james');
     console.log("username", userDavid, userJames, userChris);
     console.log("users", users);
     console.log("part", part);
+    console.log(admin)
   } catch (error) {
     console.error(error);
   } finally {

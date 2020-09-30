@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import Form from "./form";
 import Company from "./company";
 import Header from "./Header";
@@ -9,15 +9,26 @@ import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
   const [part, setPart] = useState(["0"])
-  const admin = localStorage.getItem("admin");
+  const [main, setMain] = useState("")
+  let admin = localStorage.getItem("user");
+
 
   if (!admin) {
     return (
       <Brouter>
         <div className="App">
-          <Header searchInput={searchInput} setSearchInput={setSearchInput} />
+         <Header 
+          searchInput={searchInput}
+          setSearchInput={setSearchInput} 
+          main={main}
+          setMain={setMain}
+          />
           <Switch>
-            <Login path="/login" exact component={Login} />
+            <Login path="/login" 
+             exact component={Login} 
+             main={main}
+             setMain={setMain}
+             />
             <Form
               path="/calculator"
               exact
@@ -26,6 +37,8 @@ const App = () => {
               setSearchInput={setSearchInput}
               part={part}
               setPart={setPart}
+              main={main}
+              setMain={setMain}
             />
             <Company
               path="/company"
@@ -35,6 +48,8 @@ const App = () => {
               setSearchInput={setSearchInput}
               part={part}
               setPart={setPart}
+              main={main}
+              setMain={setMain}
             />
           </Switch>{" "}
         </div>
@@ -44,9 +59,18 @@ const App = () => {
     return (
       <Brouter>
         <div className="App">
-          <Header searchInput={searchInput} setSearchInput={setSearchInput} />
+          <Header 
+           searchInput={searchInput}
+           setSearchInput={setSearchInput} 
+           main={main}
+           setMain={setMain}
+           />
           <Switch>
-            <Admin path="/" exact component={Admin} />
+            <Admin path="/" 
+             exact component={Admin} 
+             main={main}
+             setMain={setMain}
+             />
             <Form
               path="/calculator"
               exact
@@ -55,6 +79,8 @@ const App = () => {
               setSearchInput={setSearchInput}
               part={part}
               setPart={setPart}
+              main={main}
+              setMain={setMain}
             />
             <Company
               path="/company"
@@ -64,6 +90,8 @@ const App = () => {
               setSearchInput={setSearchInput}
               part={part}
               setPart={setPart}
+              main={main}
+              setMain={setMain}
             />
           </Switch>{" "}
         </div>

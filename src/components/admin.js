@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { registerUser, userUpdate, adminUpdate } from "../api";
 import Checkbox from "./checkbox";
 
-const Admin = () => {
-  const main = window.localStorage.getItem("admin");
-  const [admin, setAdmin] = useState(main);
+const Admin = ({main}) => {
+  // const [admin, setAdmin] = useState(main);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -13,11 +12,6 @@ const Admin = () => {
   const [username, setUser2] = useState("");
   const [password2, setPassword2] = useState("");
   const [adminname, setUser3] = useState("");
-
-  console.log(admin);
-  useEffect(() => {
-    setAdmin(main);
-  });
 
   const handleRegis = (event) => {
     event.preventDefault();
@@ -70,7 +64,7 @@ const Admin = () => {
     setEmail(event.target.value);
   };
 
-  if (admin.includes(false) || admin.includes(null)) {
+  if (main.includes(false) || main.includes(null) || main.includes('false') || main === 'false') {
     return <div className="Welcome">Welcome!</div>;
   } else {
     return (

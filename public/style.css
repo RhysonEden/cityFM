@@ -202,6 +202,12 @@ body {
   display: inline-flex;
 }
 
+.tdprice,
+.tbprice {
+  position: sticky;
+  width: 100%;
+}
+
 .td,
 .cod,
 .userNameLogout,
@@ -380,7 +386,12 @@ button {
     display: inline-flex;
   }
 
+  .tdprice {
+    width: 100%;
+  }
+
   .td,
+  .tdprice,
   .cod,
   .userNameLogout,
   .userNameLog {
