@@ -119,20 +119,20 @@ async function rebuildDB() {
 
 async function testDB() {
   try {
-    await dropTables();
+    // await dropTables();
     await createTables();
     await createInitialUsers();
-    const part = await searchPartsNumber("GCS");
-    const userDavid = await getUserByUsername("david");
-    const userJames = await getUserByUsername("james");
-    const userChris = await getUserByUsername("chris");
-    const main = await getUserByUsername('@dm1nGFT')
-    const users = await getAllUsers();
-    const admin = await getAdminByUsername('james');
-    console.log("username", userDavid, userJames, userChris, main);
-    console.log("users", users);
-    // console.log("part", part);
-    console.log(admin)
+    // const part = await searchPartsNumber("GCS");
+    // const userDavid = await getUserByUsername("david");
+    // const userJames = await getUserByUsername("james");
+    // const userChris = await getUserByUsername("chris");
+    // const main = await getUserByUsername('@dm1nGFT')
+    // const users = await getAllUsers();
+    // const admin = await getAdminByUsername('james');
+    // console.log("username", userDavid, userJames, userChris, main);
+    // console.log("users", users);
+    // // console.log("part", part);
+    // console.log(admin)
   } catch (error) {
     console.error(error);
   } finally {
