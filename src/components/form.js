@@ -1,34 +1,33 @@
 import React, { useState } from "react";
 import moment from "moment";
 
-
-const Form = ({part, setPart}) => {
+const Form = ({ part, setPart }) => {
   const [labor, setLabor] = useState("");
   const [travel, setTravel] = useState("");
   const [finalRate, setFinalRate] = useState(0);
   const [extraCostOne, setExtraCostOne] = useState(0);
   const [numberOne, setNumberOne] = useState(0);
   const [laborRate, setLaborRate] = useState(90);
-  const [travelRate, setTravelRate] = useState(100)
-  const [laborTotal, setLaborTotal] = useState(0)
-  const [travelTotal, setTravelTotal] = useState(0)
+  const [travelRate, setTravelRate] = useState(100);
+  const [laborTotal, setLaborTotal] = useState(0);
+  const [travelTotal, setTravelTotal] = useState(0);
   const [laptop, setLaptop] = useState(0);
-  const [consumables, setConsumables] = useState(0)
+  const [consumables, setConsumables] = useState(0);
   let ticket = localStorage.getItem("ticket");
   const user = localStorage.getItem("user");
 
   const cancelCourse = () => {
     setLabor("");
     setTravel("");
-    setPart(0)
+    setPart(0);
     setExtraCostOne(0);
     setLaborRate(90);
     setTravelRate(100);
     setNumberOne(0);
     setLaborTotal(0);
     setTravelTotal(0);
-    setLaptop(0)
-    setFinalRate(0)
+    setLaptop(0);
+    setFinalRate(0);
     document
       .querySelectorAll("input[type=checkbox]")
       .forEach((el) => (el.checked = false));
@@ -36,34 +35,34 @@ const Form = ({part, setPart}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-        let consumables = numberOne * 10;
+    let consumables = numberOne * 10;
     let P1 = Number(extraCostOne);
-    let partCost = Number(part)
-       let rateSum = laborTotal + travelTotal
-    let hourlyRate =
-      rateSum + partCost + P1 + consumables + laptop;
+    let partCost = Number(part);
+    let rateSum = laborTotal + travelTotal;
+    let hourlyRate = rateSum + partCost + P1 + consumables + laptop;
     let preRoundRate = Math.round(hourlyRate * 100) / 100;
     let roundedRate = preRoundRate.toFixed(2);
     setFinalRate(roundedRate);
-   };
+  };
 
-   const handleEmail = () => {
-    //  event.preventDefault();
-     ticket = localStorage.removeItem("ticket")
-     window.location.reload(false);
-   }
-    
+  const handleEmail = (e) => {
+    e.preventDefault();
+
+    cancelCourse();
+    //  window.location.reload();
+  };
+
   const addNumberOne = (event) => {
     event.preventDefault();
     setNumberOne(numberOne + 1);
-    setConsumables((numberOne + 1) * 10)
+    setConsumables((numberOne + 1) * 10);
   };
 
   const minusNumberOne = (event) => {
     event.preventDefault();
     if (numberOne >= 1) {
       setNumberOne(numberOne - 1);
-      setConsumables((numberOne - 1)  * 10)
+      setConsumables((numberOne - 1) * 10);
     } else {
       setNumberOne(numberOne);
     }
@@ -80,25 +79,24 @@ const Form = ({part, setPart}) => {
   const handleCheckBoxTwo = (checked) => {
     if (checked) {
       setLaborRate(125);
-      setTravelRate(150)
-      setLaborTotal(labor * 125)
-      setTravelTotal(travel * 150)
+      setTravelRate(150);
+      setLaborTotal(labor * 125);
+      setTravelTotal(travel * 150);
     } else {
       setLaborRate(90);
-      setTravelRate(100)
+      setTravelRate(100);
     }
   };
 
   const handleCheckBoxThree = (checked) => {
     if (checked) {
       setLaborRate(180);
-      setTravelRate(180)
-      setLaborTotal(labor * 180)
-      setTravelTotal(travel * 180)
+      setTravelRate(180);
+      setLaborTotal(labor * 180);
+      setTravelTotal(travel * 180);
     } else {
       setLaborRate(90);
-      setTravelRate(100)
-
+      setTravelRate(100);
     }
   };
 
@@ -112,19 +110,21 @@ const Form = ({part, setPart}) => {
 
   const changeLabor = (event) => {
     setLabor(event.target.value);
-    setLaborTotal(event.target.value * laborRate)
+    setLaborTotal(event.target.value * laborRate);
   };
 
   const changeTravel = (event) => {
     setTravel(event.target.value);
-    setTravelTotal(event.target.value * travelRate)
+    setTravelTotal(event.target.value * travelRate);
   };
 
   if (!user) {
     return <div className="pleaselogin">Please Log In To Continue</div>;
   } else if (!ticket) {
-    return <div className="pleaselogin">Please enter Ticket Number to Continue</div>
-  }else {
+    return (
+      <div className="pleaselogin">Please enter Ticket Number to Continue</div>
+    );
+  } else {
     return (
       <div className="page">
         <form id="create">
@@ -165,29 +165,48 @@ const Form = ({part, setPart}) => {
           </div>
           <div className="check">
             <h4>Consumables</h4>
-            <button className="thecartbtnminus" onClick={minusNumberOne}>subtract</button>
-           <input className="miscitems" type="numeric" value={numberOne} />
-           <button className="thecartbtnadd" onClick={addNumberOne}>add</button>
+            <button className="thecartbtnminus" onClick={minusNumberOne}>
+              subtract
+            </button>
+            <input className="miscitems" type="numeric" value={numberOne} />
+            <button className="thecartbtnadd" onClick={addNumberOne}>
+              add
+            </button>
           </div>
         </form>
-        <div className="finalrate">
-          <h1 className='itemized'>Labor Total ={'$' + laborTotal}</h1>
-          <h1 className='itemized'>Travel Total ={'$' + travelTotal}</h1>
-          <h1 className='itemized'>Parts Total ={'$' + part}</h1>
-          <h1 className='itemized'>Consumables ={'$' + consumables}</h1>
-          <h1 className='itemized'>Laptop Total ={'$' + laptop}</h1>
-          <h1 className='itemized'>Trip Total = {"$" + finalRate}</h1>
+        <div className="finalrate" name={ticket}>
+          <h1 className="itemized" name={ticket}>
+            Ticket #{ticket}
+          </h1>
+          <h1 className="itemized" name={laborTotal}>
+            Labor Total ={"$" + laborTotal}
+          </h1>
+          <h1 className="itemized" name={travelTotal}>
+            Travel Total ={"$" + travelTotal}
+          </h1>
+          <h1 className="itemized" name={part}>
+            Parts Total ={"$" + part}
+          </h1>
+          <h1 className="itemized" name={consumables}>
+            Consumables ={"$" + consumables}
+          </h1>
+          <h1 className="itemized" name={laptop}>
+            Laptop Total ={"$" + laptop}
+          </h1>
+          <h1 className="itemized" name={finalRate}>
+            Trip Total = {"$" + finalRate}
+          </h1>
         </div>
         <button className="thecartbtn" onClick={cancelCourse}>
-            Clear
-          </button>
+          Clear
+        </button>
 
-          <button className="thecartbtn" onClick={handleSubmit}>
+        <button className="thecartbtn" onClick={handleSubmit}>
           Submit
-          </button>
-          <button className="thecartbtn" onClick={handleEmail}>
+        </button>
+        <button className="thecartbtn" onClick={handleEmail}>
           Email
-          </button>
+        </button>
       </div>
     );
   }

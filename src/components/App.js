@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "./form";
 import Company from "./company";
 import Header from "./Header";

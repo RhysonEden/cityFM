@@ -10,7 +10,8 @@ export default function Checkbox({
   const handler = !disabled ? onChange : undefined;
 
   return (
-    <form className="create">
+    <>
+    <div className="create">
       <span className="checkbox" onClick={handler}>
         <input
           className="checkbox-input"
@@ -27,6 +28,7 @@ export default function Checkbox({
           {label}
         </label>
       </span>
-    </form>
+    </div>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { registerUser, userUpdate, adminUpdate } from "../api";
 import Checkbox from "./checkbox";
 
@@ -65,7 +65,7 @@ const Admin = ({main}) => {
   };
 
   if (main.includes(false) || main.includes(null) || main.includes('false') || main === 'false') {
-    return <div className="Welcome">Welcome!</div>;
+    return <div className="Welcome">Welcome! Please use Parts Button to search parts, or Calculator Button to use the calculator</div>;
   } else {
     return (
       <div className="page">

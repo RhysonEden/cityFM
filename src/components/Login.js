@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginUser, registerUser } from "../api/index";
+import { loginUser } from "../api/index";
 import {Link} from "react-router-dom"
 
 function Login({main, setMain}) {

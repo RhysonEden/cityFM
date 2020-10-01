@@ -57,10 +57,21 @@ async function createInitialUsers() {
   try {
     console.log("Starting to create users...");
     await new Promise((resolve, reject) => {
-      ("here the user");
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const arman = await createUser({
+        const david = await createUser({
           username: "david",
+          password: hashedPassword,
+          email: "test1@yahoo.com",
+          admin: false,
+        });
+        resolve();
+      });
+    });
+
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
+        const admin = await createUser({
+          username: "@dm1nGFT",
           password: hashedPassword,
           email: "test1@yahoo.com",
           admin: true,
@@ -75,18 +86,18 @@ async function createInitialUsers() {
           username: "james",
           password: hashedPassword,
           email: "test2@yahoo.com",
-          admin: true,
+          admin: false,
         });
         resolve();
       });
     });
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const katy = await createUser({
+        const chris = await createUser({
           username: "chris",
           password: hashedPassword,
           email: "test2@yahoo.com",
-          admin: true,
+          admin: false,
         });
         resolve();
       });
@@ -115,11 +126,12 @@ async function testDB() {
     const userDavid = await getUserByUsername("david");
     const userJames = await getUserByUsername("james");
     const userChris = await getUserByUsername("chris");
+    const main = await getUserByUsername('@dm1nGFT')
     const users = await getAllUsers();
     const admin = await getAdminByUsername('james');
-    console.log("username", userDavid, userJames, userChris);
+    console.log("username", userDavid, userJames, userChris, main);
     console.log("users", users);
-    console.log("part", part);
+    // console.log("part", part);
     console.log(admin)
   } catch (error) {
     console.error(error);

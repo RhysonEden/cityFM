@@ -8,7 +8,8 @@ function logout() {
 }
 
 function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
-  const [user, setUser] = React.useState(localStorage.getItem("user"));
+  const user = localStorage.getItem("user")
+  const display = localStorage.getItem('ticket')
   const [ticket, setTicket] = useState("")
 
 const ticketButton = () => {
@@ -65,6 +66,7 @@ getAdmin();
         )}
         {user ? (
           <>
+          {!display ? (
           <div className="tickets">
             <input
                 className="search"
@@ -78,6 +80,11 @@ getAdmin();
               />
               <button className="thecartbtn" onClick={ticketButton}>Submit Ticket</button>
             </div>
+          ) : (
+            <div className="tickets">
+              {display}
+            </div>
+          )}
           <Link to="/company">
             <button type="button" className="thecartbtn">
               Parts

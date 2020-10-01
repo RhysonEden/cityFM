@@ -69,6 +69,11 @@ body {
   margin-left: 100px;
 }
 
+.pleaselogin {
+  background-color: #fff957;
+}
+
+
 .thecartbtnminus,
 .thecartbtnadd {
   border: 1px solid black;
