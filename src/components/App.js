@@ -4,31 +4,33 @@ import Company from "./parts";
 import Header from "./Header";
 import Admin from "./admin";
 import Login from "./Login";
+import Footer from "./footer";
 import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [part, setPart] = useState(["0"])
-  const [main, setMain] = useState("")
+  const [part, setPart] = useState(["0"]);
+  const [main, setMain] = useState("");
   let admin = localStorage.getItem("user");
-
 
   if (!admin) {
     return (
       <Brouter>
         <div className="App">
-         <Header 
-          searchInput={searchInput}
-          setSearchInput={setSearchInput} 
-          main={main}
-          setMain={setMain}
+          <Header
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            main={main}
+            setMain={setMain}
           />
           <Switch>
-            <Login path="/login" 
-             exact component={Login} 
-             main={main}
-             setMain={setMain}
-             />
+            <Login
+              path="/login"
+              exact
+              component={Login}
+              main={main}
+              setMain={setMain}
+            />
             <Form
               path="/calculator"
               exact
@@ -52,6 +54,7 @@ const App = () => {
               setMain={setMain}
             />
           </Switch>{" "}
+          <Footer />
         </div>
       </Brouter>
     );
@@ -59,18 +62,20 @@ const App = () => {
     return (
       <Brouter>
         <div className="App">
-          <Header 
-           searchInput={searchInput}
-           setSearchInput={setSearchInput} 
-           main={main}
-           setMain={setMain}
-           />
+          <Header
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            main={main}
+            setMain={setMain}
+          />
           <Switch>
-            <Admin path="/" 
-             exact component={Admin} 
-             main={main}
-             setMain={setMain}
-             />
+            <Admin
+              path="/"
+              exact
+              component={Admin}
+              main={main}
+              setMain={setMain}
+            />
             <Form
               path="/calculator"
               exact
@@ -94,6 +99,7 @@ const App = () => {
               setMain={setMain}
             />
           </Switch>{" "}
+          <Footer />
         </div>
       </Brouter>
     );

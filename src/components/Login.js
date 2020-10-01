@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { loginUser } from "../api/index";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
-function Login({main, setMain}) {
+function Login({ main, setMain }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [user, setUser] = React.useState(localStorage.getItem("user"));
+
+  const users = username.toLowerCase();
+  const pword = password.toLowerCase();
 
   const changeUser = (event) => {
     setUsername(event.target.value);
@@ -24,7 +27,7 @@ function Login({main, setMain}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
-      loginUser(username, password).then(() => {
+      loginUser(users, pword).then(() => {
         setUser(username);
         // getAdmin(username)
         cancelCourse();
@@ -62,9 +65,9 @@ function Login({main, setMain}) {
           onChange={changePassword}
         ></input>
         <Link to="/company">
-        <button className="submit" onClick={handleSubmit}>
-          Submit
-        </button>
+          <button className="submit" onClick={handleSubmit}>
+            Submit
+          </button>
         </Link>
       </form>
     </div>
