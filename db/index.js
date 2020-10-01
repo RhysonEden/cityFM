@@ -28,6 +28,22 @@ async function createUser({ username, password, email, admin }) {
   }
 }
 
+async function createPart({ number, descr, price }) {
+  try {
+    const result = await client.query(
+      `
+      INSERT INTO parts(number, descr, price)
+      VALUES ($1, $2, $3);
+    `,
+      [number, descr, price]
+    );
+
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getAdminByUsername(username) {
   try {
     const { rows } = await client.query(
@@ -192,5 +208,6 @@ module.exports = {
   updateUser,
   adminUpdate,
   searchPartsNumber,
-  getAdminByUsername
+  getAdminByUsername,
+  createPart,
 };
