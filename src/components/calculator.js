@@ -40,7 +40,8 @@ const Form = ({ part, setPart }) => {
     let P1 = Number(extraCostOne);
     let partCost = Number(part);
     let rateSum = laborTotal + travelTotal;
-    let hourlyRate = rateSum + partCost + P1 + consumables + laptop + enviroment;
+    let hourlyRate =
+      rateSum + partCost + P1 + consumables + laptop + enviroment;
     let preRoundRate = Math.round(hourlyRate * 100) / 100;
     let roundedRate = preRoundRate.toFixed(2);
     setFinalRate(roundedRate);
@@ -195,7 +196,7 @@ const Form = ({ part, setPart }) => {
             Laptop Total = {"$" + laptop}
           </h2>
           <h2 className="itemized" name={enviroment}>
-            Enviromental Tax = {"$" + enviroment}
+            Enviromental Fee = {"$" + enviroment}
           </h2>
           <h2 className="itemized" name={finalRate}>
             Trip Total = {"$" + finalRate}
