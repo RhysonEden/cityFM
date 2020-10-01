@@ -13,6 +13,7 @@ const Form = ({ part, setPart }) => {
   const [travelTotal, setTravelTotal] = useState(0);
   const [laptop, setLaptop] = useState(0);
   const [consumables, setConsumables] = useState(0);
+  const enviroment = 10;
   let ticket = localStorage.getItem("ticket");
   const user = localStorage.getItem("user");
 
@@ -39,7 +40,7 @@ const Form = ({ part, setPart }) => {
     let P1 = Number(extraCostOne);
     let partCost = Number(part);
     let rateSum = laborTotal + travelTotal;
-    let hourlyRate = rateSum + partCost + P1 + consumables + laptop;
+    let hourlyRate = rateSum + partCost + P1 + consumables + laptop + enviroment;
     let preRoundRate = Math.round(hourlyRate * 100) / 100;
     let roundedRate = preRoundRate.toFixed(2);
     setFinalRate(roundedRate);
@@ -175,38 +176,41 @@ const Form = ({ part, setPart }) => {
           </div>
         </form>
         <div className="finalrate" name={ticket}>
-          <h1 className="itemized" name={ticket}>
-            Ticket #{ticket}
-          </h1>
-          <h1 className="itemized" name={laborTotal}>
-            Labor Total ={"$" + laborTotal}
-          </h1>
-          <h1 className="itemized" name={travelTotal}>
-            Travel Total ={"$" + travelTotal}
-          </h1>
-          <h1 className="itemized" name={part}>
-            Parts Total ={"$" + part}
-          </h1>
-          <h1 className="itemized" name={consumables}>
-            Consumables ={"$" + consumables}
-          </h1>
-          <h1 className="itemized" name={laptop}>
-            Laptop Total ={"$" + laptop}
-          </h1>
-          <h1 className="itemized" name={finalRate}>
+          <h2 className="itemized" name={ticket}>
+            Ticket # {ticket}
+          </h2>
+          <h2 className="itemized" name={laborTotal}>
+            Labor Total = {"$" + laborTotal}
+          </h2>
+          <h2 className="itemized" name={travelTotal}>
+            Travel Total = {"$" + travelTotal}
+          </h2>
+          <h2 className="itemized" name={part}>
+            Parts Total = {"$" + part}
+          </h2>
+          <h2 className="itemized" name={consumables}>
+            Consumables = {"$" + consumables}
+          </h2>
+          <h2 className="itemized" name={laptop}>
+            Laptop Total = {"$" + laptop}
+          </h2>
+          <h2 className="itemized" name={enviroment}>
+            Enviromental Tax = {"$" + enviroment}
+          </h2>
+          <h2 className="itemized" name={finalRate}>
             Trip Total = {"$" + finalRate}
-          </h1>
+          </h2>
         </div>
         <button className="thecartbtn" onClick={cancelCourse}>
           Clear
         </button>
 
         <button className="thecartbtn" onClick={handleSubmit}>
-          Submit
+          Total
         </button>
-        <button className="thecartbtn" onClick={handleEmail}>
+        {/* <button className="thecartbtn" onClick={handleEmail}>
           Email
-        </button>
+        </button> */}
       </div>
     );
   }

@@ -65,7 +65,7 @@ const Admin = ({main}) => {
   };
 
   if (main.includes(false) || main.includes(null) || main.includes('false') || main === 'false') {
-    return <div className="Welcome">Welcome! Please use Parts Button to search parts, or Calculator Button to use the calculator</div>;
+    return <div className="pleaselogin">Welcome! </div>;
   } else {
     return (
       <div className="page">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Form from "./form";
-import Company from "./company";
+import Form from "./calculator";
+import Company from "./parts";
 import Header from "./Header";
 import Admin from "./admin";
 import Login from "./Login";
