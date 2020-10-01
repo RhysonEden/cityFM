@@ -70,43 +70,51 @@ const Form = ({ part, setPart }) => {
     }
   };
 
-  const handleCheckBoxOne = (checked) => {
-    if (checked) {
+  const handleCheckBoxOne = (e) => {
+    if (e.target.checked) {
       setExtraCostOne(50);
-    } else {
+    } else if (!e.target.checked) {
       setExtraCostOne(0);
     }
   };
 
-  const handleCheckBoxTwo = (checked) => {
-    if (checked) {
+  const handleCheckBoxTwo = (e) => {
+    if (e.target.checked) {
       setLaborRate(125);
       setTravelRate(150);
       setLaborTotal(labor * 125);
       setTravelTotal(travel * 150);
-    } else {
+    } else if (!e.target.checked) {
       setLaborRate(90);
       setTravelRate(100);
     }
   };
 
-  const handleCheckBoxThree = (checked) => {
-    if (checked) {
+  const handleCheckBoxThree = (e) => {
+    if (e.target.checked) {
       setLaborRate(180);
       setTravelRate(180);
       setLaborTotal(labor * 180);
       setTravelTotal(travel * 180);
-    } else {
+    } else if (!e.target.checked) {
       setLaborRate(90);
       setTravelRate(100);
     }
   };
 
-  const handleCheckBoxFour = (checked) => {
-    if (checked) {
-      setLaptop(25);
-    } else {
+  // const handleCheckBoxFour = (checked) => {
+  //   if (!checked) {
+  //     setLaptop(0);
+  //   } else if (checked) {
+  //     setLaptop(25);
+  //   }
+  // };
+
+  const handleCheckBoxFour = (e) => {
+    if (!e.target.checked) {
       setLaptop(0);
+    } else if (e.target.checked) {
+      setLaptop(25);
     }
   };
 
@@ -130,11 +138,11 @@ const Form = ({ part, setPart }) => {
     return (
       <div className="page">
         <form id="create">
-          <input
+          {/* <input
             className="form-input"
             id="date"
             placeholder={moment().format("dddd")}
-          ></input>
+          ></input> */}
           <input
             className="form-input"
             id="link"
@@ -152,7 +160,7 @@ const Form = ({ part, setPart }) => {
           <input
             className="form-input"
             id="tags"
-            value={"$" + part}
+            value={"Part Price" + " " + "$" + part}
             placeholder="Enter Parts Price"
           ></input>
           <div className="check">
