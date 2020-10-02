@@ -22,12 +22,6 @@ async function createTables() {
           email varchar NOT NULL,
           admin varchar NOT NULL
           );
-          CREATE TABLE parts (
-  id SERIAL PRIMARY KEY,
-  number varchar NOT NULL,
-  descr varchar NOT NULL,
-  price varchar NOT NULL
-  );
       `);
   } catch (error) {
     throw error;

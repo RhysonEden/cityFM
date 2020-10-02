@@ -65,8 +65,25 @@ body {
   font-size: 20px;
 }
 
+.tickets {
+  background-color: white;
+}
+
 .leftspace {
-  margin-left: 100px;
+  margin-left: 50px;
+}
+
+.leftspacesun {
+  margin-left: 5px;
+}
+
+.leftspaceyes {
+  margin-left: 20px;
+}
+
+.leftspaceot, .leftspacehol {
+  width: 100%;
+  /* margin-left: 100px; */
 }
 
 .pleaselogin {
@@ -279,7 +296,7 @@ button {
 
   .leftspace {
     margin-left: 15px;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
   }
 
   .submit,

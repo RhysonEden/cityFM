@@ -32,6 +32,11 @@ async function getAdmin() {
 })
 }
 
+const removeTicket = () => {
+  localStorage.removeItem("ticket")
+  window.location.reload();
+}
+
 useEffect(() => {
 getAdmin();
 }, []);
@@ -82,7 +87,8 @@ getAdmin();
             </div>
           ) : (
             <div className="tickets">
-              {display}
+              {display} 
+              <button className="thecartbtn" onClick={removeTicket}>Clear Ticket</button>
             </div>
           )}
           <Link to="/company">
