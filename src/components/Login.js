@@ -21,7 +21,7 @@ function Login({ main, setMain }) {
   const cancelCourse = () => {
     setUsername("");
     setPassword("");
-    window.location.reload(true);
+    window.location.reload();
   };
 
   const handleSubmit = (event) => {
@@ -64,7 +64,7 @@ function Login({ main, setMain }) {
           placeholder="Enter Password"
           onChange={changePassword}
         ></input>
-        <Link to="/company">
+        <Link to="/calculator">
           <button className="submit" onClick={handleSubmit}>
             Submit
           </button>

@@ -256,17 +256,18 @@ const Form = ({ part, setPart }) => {
           <h2 className="itemized" name={finalRate}>
             Trip Total = {"$" + finalRate}
           </h2>
-        </div>
-        <button className="thecartbtn" onClick={cancelCourse}>
+        {/* </div> */}
+        <button className="thecartbtnfinal" onClick={cancelCourse}>
           Clear
         </button>
 
-        <button className="thecartbtn" onClick={handleSubmit}>
+        <button className="thecartbtnfinal" onClick={handleSubmit}>
           Total
         </button>
         {/* <button className="thecartbtn" onClick={handleEmail}>
           Email
         </button> */}
+           </div>
       </div>
     );
   }
