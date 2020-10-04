@@ -7,6 +7,10 @@ body {
   width: 100%;
 }
 
+.cod {
+  color: white;
+}
+
 .search {
   border: 1px solid black;
 }
@@ -14,13 +18,18 @@ body {
 .buttonz {
   width: 100%;
 }
+
+.makethataccount {
+  color: white;
+}
 .makethataccount,
 .fullwidth {
   width: 100%;
 }
 .header {
   height: 150px;
-  background: #ff6633;
+  background: #134a7a;
+  /* background: #ff6633; */
   border-radius: 10px;
   align-items: center;
   justify-content: center;
@@ -41,21 +50,25 @@ body {
 }
 
 .thecartbtnfinal {
+
+  
   border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #a4e271;
-  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
-  background-color: #89c403;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
+  background-color: white;
   border-radius: 6px;
-  width: 115px;
-  height: 30px;
   cursor: pointer;
-  color: #ffffff;
+  color: black;
+  
   font-family: Arial;
-  font-size: 10px;
+  font-size: 20px;
   font-weight: bold;
   padding: 2px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #528009;
+  width: 115px;
+  height: 30px;
+  
 }
 
 .thecartbtncart,
@@ -65,12 +78,13 @@ body {
 .logout,
 .account {
   border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #a4e271;
-  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
-  background-color: #89c403;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
+  background-color: white;
   border-radius: 6px;
   cursor: pointer;
-  color: #ffffff;
+  color: black;
+  
   font-family: Arial;
   font-size: 10px;
   font-weight: bold;
@@ -105,23 +119,24 @@ body {
 }
 
 .pleaselogin {
-  background-color: #fff957;
+  background-color: yellow;
 }
 
 
 .thecartbtnminus,
 .thecartbtnadd {
+  
   border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #a4e271;
-  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
-  background-color: #89c403;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
+  background-color: white;
   border-radius: 6px;
   cursor: pointer;
-  color: #ffffff;
+  color: black;
   font-family: Arial;
   font-size: 10px;
   font-weight: bold;
-  padding: 2px 10px;
+  padding: 2px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #528009;
 }
@@ -205,7 +220,7 @@ body {
   flex-direction: row;
   width: 100%;
   height: 200px;
-  background: #ff6633;
+  background: #134a7a;
   position: sticky;
   top: 0;
 }
@@ -221,17 +236,16 @@ body {
 .thecartbtncall {
   
   border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #a4e271;
-  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
-  background-color: #89c403;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
+  background-color: white;
   border-radius: 6px;
-  display: inline-block;
   cursor: pointer;
-  color: #ffffff;
+  color: black;
+  
   font-family: Arial;
   font-size: 10px;
   font-weight: bold;
-  margin-top: 20px;
   padding: 2px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #528009;
@@ -275,7 +289,8 @@ body {
   align-items: center;
 }
 .userNameLog {
-  background: #fff957;
+  color: white;
+  background: #134a7a;
   margin: 5px;
   justify-content: center;
   text-align: center;
@@ -322,13 +337,13 @@ button {
   .userNameLogout > button,
   .account {
     border: 1px solid black;
-    box-shadow: inset 0px 1px 0px 0px #a4e271;
-    background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
-    background-color: #89c403;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
+    background-color: white;
     border-radius: 6px;
-    display: inline-block;
     cursor: pointer;
-    color: #ffffff;
+    color: black;
+    
     font-family: Arial;
     font-size: 10px;
     font-weight: bold;
@@ -338,22 +353,20 @@ button {
   }
 
 .thecartbtncall {
-    border: 1px solid black;
-    box-shadow: inset 0px 1px 0px 0px #a4e271;
-    background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
-    background-color: #89c403;
-    border-radius: 6px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 10px;
-    font-weight: bold;
-    margin-top: 5px;
-    margin-bottom: -10px;
-    padding: 2px 24px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #528009;
+  border: 1px solid black;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  color: black;
+  
+  font-family: Arial;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528009;
   }
 
   .miscitems {
@@ -416,7 +429,7 @@ button {
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
-    background: #ff6633;
+    background: #134a7a;
     position: sticky;
     top: 0;
   }
@@ -429,7 +442,9 @@ button {
   .tdprice {
     width: 100%;
   }
-
+.cod {
+  color: white
+}
   .td,
   .tdprice,
   .cod,
@@ -463,7 +478,8 @@ button {
     align-items: center;
   }
   .userNameLog {
-    background: #fff957;
+    color: white;
+    background: #134a7a;
     margin: 10px;
     justify-content: center;
     text-align: center;
@@ -513,7 +529,7 @@ button {
     flex-wrap: wrap;
     width: 97%;
     height: 100px;
-    background: #ff6633;
+    background: #134a7a
   }
 
   .leftspace {
