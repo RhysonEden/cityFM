@@ -87,44 +87,6 @@ const Form = ({ part, setPart }) => {
     }
   };
 
-  // const handleCheckBoxTwo = (e) => {
-  //   if (e.target.checked) {
-  //     setLaborRate(125);
-  //     setTravelRate(150);
-  //     setLaborTotal(labor * 125);
-  //     setTravelTotal(travel * 150);
-  //   } 
-  // };
-
-  // const handleCheckBoxTwoTwo = (e) => {
-  //   if (e.target.checked) {
-  //     setLaborRate(90);
-  //     setTravelRate(100);
-  //     setLaborTotal(labor * 125);
-  //     setTravelTotal(travel * 150);
-  //   } 
-  // };
-
-  // const handleCheckBoxThree = (e) => {
-  //   if (e.target.checked) {
-  //     setLaborRate(180);
-  //     setTravelRate(180);
-  //     setLaborTotal(labor * 180);
-  //     setTravelTotal(travel * 180);
-  //   } else if (!e.target.checked) {
-  //     setLaborRate(90);
-  //     setTravelRate(100);
-  //   }
-  // };
-
-  // const handleCheckBoxFour = (checked) => {
-  //   if (!checked) {
-  //     setLaptop(0);
-  //   } else if (checked) {
-  //     setLaptop(25);
-  //   }
-  // };
-
   const handleCheckBoxFour = (e) => {
     if (!e.target.checked) {
       setLaptop(0);
