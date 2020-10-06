@@ -427,46 +427,46 @@ const Form = ({ part, setPart }) => {
             {/* <Accordion
               title="Can I purchase items again?"
               content="
-            <div className="checks">
-              <h3 className="center">
+            <div className='checks'>
+              <h3 className='center'>
                 Click the checkbox for additional charges.
               </h3>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxOne}></input>
-                <span className="div1">P1</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxOne}></input>
+                <span className='div1'>P1</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxFour}></input>
-                <span className="div2">Laptop</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxFour}></input>
+                <span className='div2'>Laptop</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxTwo}></input>
-                <span className="div3">Confined Space</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxTwo}></input>
+                <span className='div3'>Confined Space</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxThree}></input>
-                <span className="div4">Blower</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxThree}></input>
+                <span className='div4'>Blower</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxFive}></input>
-                <span className="div5">Calibration Can</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxFive}></input>
+                <span className='div5'>Calibration Can</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxSix}></input>
-                <span className="div6">Calibration Trailer</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxSix}></input>
+                <span className='div6'>Calibration Trailer</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxEight}></input>
-                <span className="div8">Water Trailer</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxEight}></input>
+                <span className='div8'>Water Trailer</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxNine}></input>
-                <span className="div9">Hand Pump(PCW)</span>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxNine}></input>
+                <span className='div9'>Hand Pump(PCW)</span>
               </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxSeven}></input>
+              <div className='parent'>
+                <input type='checkbox' onChange={handleCheckBoxSeven}></input>
 
-                <span className="div10">Heavy Truck</span>
+                <span className='div10'>Heavy Truck</span>
               </div>
             </div>
         "
