@@ -9,6 +9,7 @@ export async function loginUser(username, password) {
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
     localStorage.setItem("id", data.user.id);
+    localStorage.setItem("email", data.user.email);
     return data;
   } catch (error) {
     throw error;
@@ -25,6 +26,42 @@ export async function registerUser(username, password, email) {
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
     localStorage.setItem("id", data.user.id);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export default async function emailTotal(
+  email,
+  ticket,
+  baseFee,
+  miscPrice,
+  P1,
+  laborTotal,
+  travelTotal,
+  part,
+  consumables,
+  laptop,
+  enviroment,
+  finalRate
+) {
+  try {
+    const { data } = await axios.post("api/email/email", {
+      email,
+      ticket,
+      baseFee,
+      miscPrice,
+      P1,
+      laborTotal,
+      travelTotal,
+      part,
+      consumables,
+      laptop,
+      enviroment,
+      finalRate,
+    });
+
     return data;
   } catch (error) {
     throw error;
@@ -71,7 +108,7 @@ export async function getUserInfo() {
 export async function getAdminInfo(username) {
   try {
     const data = await axios.get(`/api/users/${username}`, {
-      username
+      username,
     });
 
     return data;

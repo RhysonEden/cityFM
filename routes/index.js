@@ -48,6 +48,9 @@ apiRouter.use("/users", usersRouter);
 const companyRouter = require("./company");
 apiRouter.use("/company", companyRouter);
 
+const emailRouter = require("./email");
+apiRouter.use("/email", emailRouter)
+
 apiRouter.use((err, req, res, next) => {
   res.status(500).json({
     message: err.message,

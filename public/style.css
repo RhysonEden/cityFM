@@ -7,6 +7,29 @@ body {
   width: 100%;
 }
 
+/* .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+} */
+
+/* .active, .accordion:hover {
+  background-color: #ccc;
+} */
+
+/* .panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}  */
+
 .cod {
   color: white;
 }
@@ -50,8 +73,6 @@ body {
 }
 
 .thecartbtnfinal {
-
-  
   border: 1px solid black;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
   background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
@@ -59,7 +80,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
   color: black;
-  
+
   font-family: Arial;
   font-size: 20px;
   font-weight: bold;
@@ -68,7 +89,6 @@ body {
   text-shadow: 0px 1px 0px #528009;
   width: 115px;
   height: 30px;
-  
 }
 
 .thecartbtncart,
@@ -84,7 +104,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
   color: black;
-  
+
   font-family: Arial;
   font-size: 10px;
   font-weight: bold;
@@ -113,7 +133,8 @@ body {
   margin-left: 20px;
 }
 
-.leftspaceot, .leftspacehol {
+.leftspaceot,
+.leftspacehol {
   width: 100%;
   /* margin-left: 100px; */
 }
@@ -122,10 +143,8 @@ body {
   background-color: yellow;
 }
 
-
 .thecartbtnminus,
 .thecartbtnadd {
-  
   border: 1px solid black;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
   background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
@@ -148,13 +167,18 @@ body {
   width: 100%;
 }
 
-.tickets, .ticketnum {
+.spacebottom {
+  margin-bottom: 10px;
+}
+
+.tickets,
+.ticketnum {
   width: 100%;
 }
 
 .ticketnum {
   border: 1px solid black;
-  background-color: white
+  background-color: white;
 }
 
 .miscitems {
@@ -189,7 +213,6 @@ body {
   align-content: center;
   align-items: center;
   font-size: 15px;
-  margin-bottom: 20px;
 }
 
 .numericgloves,
@@ -214,6 +237,7 @@ body {
 .root {
   background-color: white;
 }
+
 .header {
   display: flex;
   flex-wrap: wrap;
@@ -224,7 +248,8 @@ body {
   position: sticky;
   top: 0;
 }
-.finalrate { 
+
+.finalrate {
   border: 1px solid black;
   align-items: flex-start;
 }
@@ -233,8 +258,12 @@ body {
   text-align: justify;
 }
 
+.itemizedtotal {
+  text-align: center;
+  /* text-align: right; */
+}
+
 .thecartbtncall {
-  
   border: 1px solid black;
   box-shadow: inset 0px 1px 0px 0px #ffffff;
   background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
@@ -242,7 +271,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
   color: black;
-  
+
   font-family: Arial;
   font-size: 10px;
   font-weight: bold;
@@ -272,7 +301,7 @@ body {
 .form-input,
 .form-input-last {
   width: 100%;
-  height: 75px;
+  height: 30px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -326,6 +355,91 @@ button {
     justify-content: center;
     text-align: center;
   }
+  /* .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+} */
+  .center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fullwidthcheck {
+    margin: 0 auto;
+  }
+
+  .center {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .checks {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    border: 1px solid black;
+    /* grid-template-columns: 1fr;
+  grid-template-rows: repeat(9, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; */
+    align-items: flex-start;
+  }
+
+  .check {
+    border: 1px solid black;
+  }
+
+  .div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    align-items: start;
+  }
+  .div2 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .div3 {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .div4 {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  .div5 {
+    grid-area: 5 / 1 / 6 / 2;
+  }
+  .div6 {
+    grid-area: 6 / 1 / 7 / 2;
+  }
+  .div7 {
+    grid-area: 7 / 1 / 8 / 2;
+  }
+  .div8 {
+    grid-area: 8 / 1 / 9 / 2;
+  }
+  .div9 {
+    grid-area: 9 / 1 / 10 / 2;
+  }
+  .div10 {
+    grid-area: 10 / 1 / 11 / 2;
+  }
 
   .leftspace {
     margin-left: 15px;
@@ -343,7 +457,7 @@ button {
     border-radius: 6px;
     cursor: pointer;
     color: black;
-    
+
     font-family: Arial;
     font-size: 10px;
     font-weight: bold;
@@ -352,21 +466,21 @@ button {
     text-shadow: 0px 1px 0px #528009;
   }
 
-.thecartbtncall {
-  border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
-  background-color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  color: black;
-  
-  font-family: Arial;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 24px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #528009;
+  .thecartbtncall {
+    border: 1px solid black;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    color: black;
+
+    font-family: Arial;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528009;
   }
 
   .miscitems {
@@ -442,9 +556,9 @@ button {
   .tdprice {
     width: 100%;
   }
-.cod {
-  color: white
-}
+  .cod {
+    color: white;
+  }
   .td,
   .tdprice,
   .cod,
@@ -456,7 +570,7 @@ button {
   .form-input,
   .form-input-last {
     width: 100%;
-    height: 75px;
+    height: 35px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -529,7 +643,7 @@ button {
     flex-wrap: wrap;
     width: 97%;
     height: 100px;
-    background: #134a7a
+    background: #134a7a;
   }
 
   .leftspace {

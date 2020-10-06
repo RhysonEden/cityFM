@@ -1,7 +1,7 @@
 // This is the Web Server
 const express = require("express");
 const server = express();
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser");
 // create logs for everything
 const morgan = require("morgan");
 server.use(morgan("dev"));
@@ -9,8 +9,8 @@ server.use(morgan("dev"));
 // handle application/json requests
 const bodyParser = require("body-parser");
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true}))
-server.use(cookieParser())
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(cookieParser());
 
 // here's our static files
 const path = require("path");
@@ -34,7 +34,7 @@ server.listen(PORT, async () => {
 
   try {
     await client.connect();
-    ("Database is open for business!");
+    console.log("Database is open for business!");
   } catch (error) {
     console.error("Database is closed for repairs!\n", error);
   }
