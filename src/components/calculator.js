@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import emailTotal from "../api/index";
 import email from "../api/index";
-import Accordion from "../components/Accordion";
-
+import Switch from "./Switch";
 const Form = ({ part, setPart }) => {
   const [handPump, setHandPump] = useState(0);
   const [waterTrailer, setWaterTrailer] = useState(0);
@@ -28,43 +27,23 @@ const Form = ({ part, setPart }) => {
   const [projectManagement, setProjectManagement] = useState("");
   const [projectManagementTotal, setProjectManagementTotal] = useState(0);
   const [standByTime, setStandByTime] = useState("");
+  const [moreCharges, setMoreCharges] = useState(0);
   const [standByTimeTotal, setStandByTimeTotal] = useState(0);
-  let email = localStorage.getItem("email");
-  let total = localStorage.getItem("total");
+  const [value, setValue] = useState(false);
+  const email = localStorage.getItem("email");
+  const total = localStorage.getItem("total");
   const enviroment = 10;
   const disposalFee = 1.8;
   let P1 = Number(extraCostOne);
-  let ticket = localStorage.getItem("ticket");
+  const ticket = localStorage.getItem("ticket");
   const user = localStorage.getItem("user");
 
+  const isOn = (e) => {
+    e.preventDefault();
+    setValue(true);
+  };
+
   const cancelCourse = () => {
-    // setDisposalTotal(0)
-    // setDisposalFee("")
-    // setStandByTime('')
-    // setProjectManagement('')
-    // setConfinedSpace(0);
-    // setBlower(0);
-    // setCalibrationCan(0);
-    // setCalibrationTrailer(0);
-    // setTruckFee(0);
-    // setHandPump(0);
-    // setWaterTrailer(0);
-    // setLabor("");
-    // setTravel("");
-    // setPart(0);
-    // setExtraCostOne(0);
-    // setLaborRate(0);
-    // setTravelRate(0);
-    // setNumberOne(0);
-    // setLaborTotal(0);
-    // setTravelTotal(0);
-    // setLaptop(0);
-    // setFinalRate(0);
-    // setMiscPrice("");
-    // localStorage.removeItem("total")
-    // document
-    //   .querySelectorAll("input[type=checkbox]")
-    //   .forEach((el) => (el.checked = false));
     window.location.reload();
   };
 
@@ -192,6 +171,15 @@ const Form = ({ part, setPart }) => {
     }
   };
 
+  const handleCheckBoxTen = (e) => {
+    setValue(!value);
+    if (e.target.checked) {
+      setMoreCharges(10);
+    } else if (!e.target.checked) {
+      setMoreCharges(0);
+    }
+  };
+
   const changeStandByTime = (e) => {
     setStandByTime(e.target.value);
     setStandByTimeTotal(e.target.value * 70);
@@ -306,48 +294,6 @@ const Form = ({ part, setPart }) => {
           />
           Sunday/Holiday
         </form>
-        {/* <h3 className="spacebottom">Travel</h3>
-        <form>
-        <input
-          className="spacebottom"
-            type="radio"
-            name="fruit"
-            value="apple"
-            labor="90"
-            onClick={radioReg}
-          />
-          Zone A
-          <input
-          className="spacebottom"
-            type="radio"
-            name="fruit"
-            value="orange"
-            labor="90"
-            onClick={radioOt}
-            className="leftspace"
-          />
-          Zone B
-          <input
-          className="spacebottom"
-            type="radio"
-            name="fruit"
-            value="melon"
-            labor="90"
-            onClick={radioSun}
-            className="leftspace"
-          />
-          Zone C
-            <input
-          className="spacebottom"
-            type="radio"
-            name="fruit"
-            value="melon"
-            labor="90"
-            onClick={radioSun}
-            className="leftspace"
-          />
-          Zone D
-        </form> */}
         <form id="create">
           <input
             className="form-input"
@@ -395,137 +341,84 @@ const Form = ({ part, setPart }) => {
             }
             onChange={changeStandByTime}
           ></input>
-          {/* <div className="check">
-            <div className="center">
-            <span className="fullwidthcheck">P1</span>
-            <input type="checkbox" onChange={handleCheckBoxOne}></input>
-            <span className="leftspace fullwidthcheck">Laptop</span>
-            <input type="checkbox" onChange={handleCheckBoxFour}></input>
-            <span className="leftspace fullwidthcheck">Confined Space</span>
-            <input type="checkbox" onChange={handleCheckBoxTwo}></input>
-            <span className="leftspace fullwidthcheck">Blower</span>
-            <input type="checkbox" onChange={handleCheckBoxThree}></input>
-            </div>
-            <div className="center">
-            <span className="leftspace fullwidthcheck">Calibration Can</span>
-            <input type="checkbox" onChange={handleCheckBoxFive}></input>
-            <span className="leftspace fullwidthcheck">Calibration Trailer</span>
-            <input type="checkbox" onChange={handleCheckBoxSix}></input>
-            </div>            
-            <div className="center">
-            <span className="leftspace fullwidthcheck">Water Trailer</span>
-            <input type="checkbox" onChange={handleCheckBoxEight}></input>
-            <span className="leftspace fullwidthcheck">Hand Pump(PCW)</span>
-            <input type="checkbox" onChange={handleCheckBoxNine}></input>
-            </div>
-            <div className="center">
-            <span className="leftspace fullwidthcheck">Heavy Truck</span>
-            <input type="checkbox" onChange={handleCheckBoxSeven}></input>
-            </div> */}
-          {/* <button className="accordion">Charges</button> */}
           <div className="panel">
-            {/* <Accordion
-              title="Can I purchase items again?"
-              content="
-            <div className='checks'>
-              <h3 className='center'>
-                Click the checkbox for additional charges.
-              </h3>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxOne}></input>
-                <span className='div1'>P1</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxFour}></input>
-                <span className='div2'>Laptop</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxTwo}></input>
-                <span className='div3'>Confined Space</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxThree}></input>
-                <span className='div4'>Blower</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxFive}></input>
-                <span className='div5'>Calibration Can</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxSix}></input>
-                <span className='div6'>Calibration Trailer</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxEight}></input>
-                <span className='div8'>Water Trailer</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxNine}></input>
-                <span className='div9'>Hand Pump(PCW)</span>
-              </div>
-              <div className='parent'>
-                <input type='checkbox' onChange={handleCheckBoxSeven}></input>
-
-                <span className='div10'>Heavy Truck</span>
-              </div>
-            </div>
-        "
-            /> */}
             <div className="checks">
-              <h3 className="center">
-                Click the checkbox for additional charges.
-              </h3>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxOne}></input>
-                <span className="div1">P1</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxFour}></input>
-                <span className="div2">Laptop</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxTwo}></input>
-                <span className="div3">Confined Space</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxThree}></input>
-                <span className="div4">Blower</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxFive}></input>
-                <span className="div5">Calibration Can</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxSix}></input>
-                <span className="div6">Calibration Trailer</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxEight}></input>
-                <span className="div8">Water Trailer</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxNine}></input>
-                <span className="div9">Hand Pump(PCW)</span>
-              </div>
-              <div className="parent">
-                <input type="checkbox" onChange={handleCheckBoxSeven}></input>
+              <Switch isOn={value} handleToggle={handleCheckBoxTen} />
+              {moreCharges > 0 && (
+                <>
+                  <div className="parent">
+                    <input type="checkbox" onChange={handleCheckBoxOne}></input>
+                    <span className="div1">P1</span>
+                  </div>
+                  <div className="parent">
+                    <input
+                      type="checkbox"
+                      onChange={handleCheckBoxFour}
+                    ></input>
+                    <span className="div2">Laptop</span>
+                  </div>
+                  <div className="parent">
+                    <input type="checkbox" onChange={handleCheckBoxTwo}></input>
+                    <span className="div3">Confined Space</span>
+                  </div>
+                  <div className="parent">
+                    <input
+                      type="checkbox"
+                      onChange={handleCheckBoxThree}
+                    ></input>
+                    <span className="div4">Blower</span>
+                  </div>
+                  <div className="parent">
+                    <input
+                      type="checkbox"
+                      onChange={handleCheckBoxFive}
+                    ></input>
+                    <span className="div5">Calibration Can</span>
+                  </div>
+                  <div className="parent">
+                    <input type="checkbox" onChange={handleCheckBoxSix}></input>
+                    <span className="div6">Calibration Trailer</span>
+                  </div>
+                  <div className="parent">
+                    <input
+                      type="checkbox"
+                      onChange={handleCheckBoxEight}
+                    ></input>
+                    <span className="div8">Water Trailer</span>
+                  </div>
+                  <div className="parent">
+                    <input
+                      type="checkbox"
+                      onChange={handleCheckBoxNine}
+                    ></input>
+                    <span className="div9">Hand Pump(PCW)</span>
+                  </div>
+                  <div className="parent">
+                    <input
+                      type="checkbox"
+                      onChange={handleCheckBoxSeven}
+                    ></input>
 
-                <span className="div10">Heavy Truck</span>
-              </div>
+                    <span className="div10">Heavy Truck</span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
-
-          <div className="check">
-            <h4>Consumables</h4>
-            <button className="thecartbtnminus" onClick={minusNumberOne}>
-              subtract
-            </button>
-            <input className="miscitems" type="numeric" value={numberOne} />
-            <button className="thecartbtnadd" onClick={addNumberOne}>
-              add
-            </button>
-          </div>
+          {moreCharges > 0 && (
+            <div className="check">
+              <h4>Consumables</h4>
+              <button className="thecartbtnminus" onClick={minusNumberOne}>
+                subtract
+              </button>
+              <input className="miscitems" type="numeric" value={numberOne} />
+              <button className="thecartbtnadd" onClick={addNumberOne}>
+                add
+              </button>
+            </div>
+          )}
         </form>
+
         <div className="finalrate" name={ticket}>
           <h2 className="itemized" name={ticket}>
             Ticket # {ticket}
