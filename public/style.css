@@ -328,11 +328,13 @@ body {
   display: inline-flex;
 }
 
+/* .cardsticky,
 .tdprice,
 .tbprice {
   position: sticky;
+  top: 100px;
   width: 100%;
-}
+} */
 
 .td,
 .cod,
@@ -580,9 +582,6 @@ button {
     display: inline-flex;
   }
 
-  .tdprice {
-    width: 100%;
-  }
   .cod {
     color: white;
   }

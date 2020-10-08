@@ -10,7 +10,6 @@ import Radio from "./Radio";
 
 const Form = ({
   part,
-  setPart,
   handPump,
   setHandPump,
   waterTrailer,
@@ -27,8 +26,6 @@ const Form = ({
   setConfinedSpace,
   labor,
   setLabor,
-  travel,
-  setTravel,
   finalRate,
   setFinalRate,
   extraCostOne,
@@ -42,7 +39,6 @@ const Form = ({
   laborTotal,
   setLaborTotal,
   travelTotal,
-  setTravelTotal,
   laptop,
   setLaptop,
   consumables,
@@ -73,11 +69,6 @@ const Form = ({
   let P1 = Number(extraCostOne);
   const ticket = localStorage.getItem("ticket");
   const user = localStorage.getItem("user");
-
-  // const isOn = (e) => {
-  //   e.preventDefault();
-  //   setValue(true);
-  // };
 
   const cancelCourse = () => {
     window.location.reload();
