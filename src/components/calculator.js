@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailTotal from "../api/index";
+import Checkboxes from "./checkboxes";
 import email from "../api/index";
 import Switch from "./Switch";
 const Form = ({ part, setPart }) => {
@@ -345,66 +346,21 @@ const Form = ({ part, setPart }) => {
             <div className="checks">
               <Switch isOn={value} handleToggle={handleCheckBoxTen} />
               {moreCharges > 0 && (
-                <div className="tops">
-                  <div className="parent">
-                    <input type="checkbox" onChange={handleCheckBoxOne}></input>
-                    <span className="div1">P1</span>
-                  </div>
-                  <div className="parent">
-                    <input
-                      type="checkbox"
-                      onChange={handleCheckBoxFour}
-                    ></input>
-                    <span className="div2">Laptop</span>
-                  </div>
-                  <div className="parent">
-                    <input type="checkbox" onChange={handleCheckBoxTwo}></input>
-                    <span className="div3">Confined Space</span>
-                  </div>
-                  <div className="parent">
-                    <input
-                      type="checkbox"
-                      onChange={handleCheckBoxThree}
-                    ></input>
-                    <span className="div4">Blower</span>
-                  </div>
-                  <div className="parent">
-                    <input
-                      type="checkbox"
-                      onChange={handleCheckBoxFive}
-                    ></input>
-                    <span className="div5">Calibration Can</span>
-                  </div>
-                  <div className="parent">
-                    <input type="checkbox" onChange={handleCheckBoxSix}></input>
-                    <span className="div6">Calibration Trailer</span>
-                  </div>
-                  <div className="parent">
-                    <input
-                      type="checkbox"
-                      onChange={handleCheckBoxEight}
-                    ></input>
-                    <span className="div8">Water Trailer</span>
-                  </div>
-                  <div className="parent">
-                    <input
-                      type="checkbox"
-                      onChange={handleCheckBoxNine}
-                    ></input>
-                    <span className="div9">Hand Pump(PCW)</span>
-                  </div>
-                  <div className="parent">
-                    <input
-                      type="checkbox"
-                      onChange={handleCheckBoxSeven}
-                    ></input>
-
-                    <span className="div10">Heavy Truck</span>
-                  </div>
-                </div>
+                <Checkboxes
+                  setExtraCostOne={setExtraCostOne}
+                  setConfinedSpace={setConfinedSpace}
+                  setBlower={setBlower}
+                  setLaptop={setLaptop}
+                  setCalibrationCan={setCalibrationCan}
+                  setCalibrationTrailer={setCalibrationTrailer}
+                  setTruckFee={setTruckFee}
+                  setWaterTrailer={setWaterTrailer}
+                  setHandPump={setHandPump}
+                />
               )}
             </div>
           </div>
+
           {moreCharges > 0 && (
             <div className="check">
               <h4>Consumables</h4>

@@ -7,6 +7,70 @@ body {
   width: 100%;
 }
 
+.charges {
+  margin-left: 75px;
+}
+
+.checks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.panel {
+  border: 1px solid black;
+}
+
+.tops {
+  margin-top: 20px;
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+  align-content: center;
+  text-align: center;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+  margin-left: 5px;
+}
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+  margin-left: 10px;
+}
+.div3 {
+  grid-area: 2 / 1 / 3 / 2;
+  margin-left: 5px;
+}
+.div4 {
+  grid-area: 2 / 2 / 3 / 3;
+  margin-left: 10px;
+}
+.div5 {
+  grid-area: 3 / 1 / 4 / 2;
+  margin-left: 5px;
+}
+.div6 {
+  grid-area: 3 / 2 / 4 / 3;
+  margin-left: 10px;
+}
+.div7 {
+  grid-area: 4 / 1 / 5 / 2;
+  margin-left: 5px;
+}
+.div8 {
+  grid-area: 4 / 2 / 5 / 3;
+  margin-left: 10px;
+}
+.div9 {
+  grid-area: 5 / 1 / 6 / 2;
+  margin-left: 5px;
+}
+
 .cod {
   color: white;
 }
@@ -332,44 +396,14 @@ button {
     border: 1px solid black;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    /* text-align: center; */
   }
-  /* .accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-}
 
-.active, .accordion:hover {
-  background-color: #ccc;
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  display: none;
-  overflow: hidden;
-} */
-  /* .charges {
-    align-self: center;
-    margin-bottom: 2000px;
-    border: 1px solid red;
-  } */
   .center {
     display: inline-block;
     border: 1px solid red;
     width: 100%;
     height: 50px;
-    /* align-self: center; */
-    /* text-align: center;
-    align-items: center; */
-    /* justify-content: center; */
   }
 
   .charges {
@@ -380,22 +414,11 @@ button {
     margin: 0 auto;
   }
 
-  /* .center {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-  } */
-
-  .checks,
-  .tops {
+  .checks {
     display: flex;
     flex-direction: column;
     margin-top: 15px;
     margin-bottom: 15px;
-    /* grid-template-columns: 1fr;
-  grid-template-rows: repeat(9, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px; */
     align-items: flex-start;
   }
 
@@ -403,41 +426,51 @@ button {
     margin-top: 15px;
   }
 
+  .tops {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    align-content: start;
+    text-align: start;
+  }
+
   .div1 {
     grid-area: 1 / 1 / 2 / 2;
-    align-items: start;
   }
   .div2 {
-    grid-area: 2 / 1 / 3 / 2;
+    grid-area: 1 / 2 / 2 / 3;
+    margin-left: 10px;
   }
   .div3 {
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 2 / 1 / 3 / 2;
   }
   .div4 {
-    grid-area: 4 / 1 / 5 / 2;
+    grid-area: 2 / 2 / 3 / 3;
+    margin-left: 10px;
   }
   .div5 {
-    grid-area: 5 / 1 / 6 / 2;
+    grid-area: 3 / 1 / 4 / 2;
   }
   .div6 {
-    grid-area: 6 / 1 / 7 / 2;
+    grid-area: 3 / 2 / 4 / 3;
+    margin-left: 10px;
   }
   .div7 {
-    grid-area: 7 / 1 / 8 / 2;
+    grid-area: 4 / 1 / 5 / 2;
   }
   .div8 {
-    grid-area: 8 / 1 / 9 / 2;
+    grid-area: 4 / 2 / 5 / 3;
+    margin-left: 10px;
   }
   .div9 {
-    grid-area: 9 / 1 / 10 / 2;
-  }
-  .div10 {
-    grid-area: 10 / 1 / 11 / 2;
+    grid-area: 5 / 1 / 6 / 2;
   }
 
   .leftspace {
     margin-left: 15px;
-    /* margin-bottom: 50px; */
   }
 
   .submit,
