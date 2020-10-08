@@ -386,7 +386,8 @@ button {
     justify-content: center;
   } */
 
-  .checks {
+  .checks,
+  .tops {
     display: flex;
     flex-direction: column;
     margin-top: 15px;

@@ -345,7 +345,7 @@ const Form = ({ part, setPart }) => {
             <div className="checks">
               <Switch isOn={value} handleToggle={handleCheckBoxTen} />
               {moreCharges > 0 && (
-                <>
+                <div className="tops">
                   <div className="parent">
                     <input type="checkbox" onChange={handleCheckBoxOne}></input>
                     <span className="div1">P1</span>
@@ -401,7 +401,7 @@ const Form = ({ part, setPart }) => {
 
                     <span className="div10">Heavy Truck</span>
                   </div>
-                </>
+                </div>
               )}
             </div>
           </div>
