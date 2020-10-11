@@ -57,7 +57,7 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
   } else {
     return (
       <>
-        <div>
+        <div className="cardsticky">
           <form method="get" action="">
             <div className="tbprice">
               <div className="tdprice">
@@ -74,9 +74,11 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
                 <button className="thecartbtn" onClick={searchSubmit}>
                   Submit
                 </button>
-                <button className="thecartbtn" onClick={testButton}>
-                  Clear Parts Total
-                </button>
+                <div>
+                  <button className="thecartbtn" onClick={testButton}>
+                    Clear Parts Total
+                  </button>
+                </div>
                 <div>Parts Total = ${part}</div>
                 <div>Number of Parts : {count}</div>
               </div>
@@ -84,7 +86,7 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
             </div>
           </form>
         </div>
-        <div className="cardsticky">
+        <div>
           <Card
             message={message}
             partlisting={partlisting}

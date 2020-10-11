@@ -21,12 +21,14 @@ const Inputs = ({
           className="form-input"
           id="link"
           value={labor}
+          type="tel"
           placeholder={"Enter Labor Hour(s)" + " X " + "$" + laborRate}
           onChange={changeLabor}
         ></input>
         <input
           className="form-input"
           id="tags"
+          type="tel"
           value={miscPrice}
           placeholder="Enter Misc. Price"
           onChange={changeMisc}
@@ -34,6 +36,7 @@ const Inputs = ({
         <input
           className="form-input"
           id="basefee"
+          type="tel"
           value={disposalNumber}
           placeholder={"Enter PCW Gallons" + " X " + "$" + disposalFee}
           onChange={changeDisposal}
@@ -41,6 +44,7 @@ const Inputs = ({
         <input
           className="form-input"
           id="comment"
+          type="tel"
           value={projectManagement}
           placeholder={
             "Project Management" +
@@ -55,6 +59,7 @@ const Inputs = ({
         <input
           className="form-input"
           id="comment"
+          type="tel"
           value={standByTime}
           placeholder={
             "Stand By" + " " + "Time" + " " + "$70 /hr" + standByTime
