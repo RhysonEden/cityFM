@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import emailTotal from "../api/index";
-import Checkboxes from "./checkboxes";
+import Checkboxes from "../helpers/checkboxes";
 import email from "../api/index";
-import Switch from "./Switch";
-import Inputs from "./inputs";
-import Consumables from "./consumables";
-import Totals from "./Totals";
-import Radio from "./Radio";
+import Switch from "../helpers/Switch";
+import Inputs from "../helpers/inputs";
+import Consumables from "../helpers/consumables";
+import Totals from "../helpers/Totals";
+import Radio from "../helpers/Radio";
 
 const Form = ({
   part,

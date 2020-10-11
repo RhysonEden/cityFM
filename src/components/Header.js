@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getAdminInfo } from "../api/index";
+import CFMTicket from "../helpers/CFMTicket";
+import GFTTicket from "../helpers/GFTTicket";
+import Links from "../helpers/Links";
 
 function logout() {
   localStorage.clear();
@@ -10,13 +13,24 @@ function logout() {
 function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
   const user = localStorage.getItem("user");
   const display = localStorage.getItem("ticket");
+  const cfm = localStorage.getItem("cityFm");
   const [ticket, setTicket] = useState("");
+  const [cityFm, setCityFm] = useState("");
 
   const ticketButton = () => {
     if (ticket.length !== 11) {
       alert("Incorrect Ticket Number");
     } else {
       localStorage.setItem("ticket", ticket);
+      window.location.reload();
+    }
+  };
+
+  const CfmTicketButton = () => {
+    if (cityFm.length !== 8) {
+      alert("Incorrect Ticket Number");
+    } else {
+      localStorage.setItem("cityFm", cityFm);
       window.location.reload();
     }
   };
@@ -69,45 +83,24 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
         )}
         {user ? (
           <>
-            {!display ? (
-              <div className="tickets">
-                <input
-                  className="search"
-                  value={ticket}
-                  onChange={(event) => {
-                    setTicket(event.target.value);
-                  }}
-                  type="text"
-                  placeholder="Enter Ticket Number"
-                  required
+            {!cfm ? (
+              <>
+                <CFMTicket
+                  setCityFm={setCityFm}
+                  CfmTicketButton={CfmTicketButton}
+                  cityFm={cityFm}
                 />
-                <button className="thecartbtn" onClick={ticketButton}>
-                  Submit Ticket
-                </button>
-              </div>
+                <Links />
+              </>
             ) : (
-              <div className="tickets">
-                {display}
-                <button className="thecartbtn" onClick={removeTicket}>
-                  Clear Ticket
-                </button>
-              </div>
+              <GFTTicket
+                display={display}
+                ticket={ticket}
+                setTicket={setTicket}
+                ticketButton={ticketButton}
+                removeTicket={removeTicket}
+              />
             )}
-            <Link to="/company">
-              <button type="button" className="thecartbtn">
-                Parts
-              </button>
-            </Link>
-            <Link to="/calculator">
-              <button type="button" className="thecartbtn">
-                Labor and Parts Totals
-              </button>
-            </Link>
-            <Link to="/">
-              <button type="button" className="thecartbtn">
-                Main
-              </button>
-            </Link>
           </>
         ) : (
           <div className="makethataccount">

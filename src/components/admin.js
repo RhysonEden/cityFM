@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { registerUser, userUpdate, adminUpdate } from "../api";
-import Checkbox from "./checkbox";
+import Checkbox from "../helpers/checkbox";
 
-const Admin = ({main}) => {
+const Admin = ({ main }) => {
   // const [admin, setAdmin] = useState(main);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -64,7 +64,12 @@ const Admin = ({main}) => {
     setEmail(event.target.value);
   };
 
-  if (main.includes(false) || main.includes(null) || main.includes('false') || main === 'false') {
+  if (
+    main.includes(false) ||
+    main.includes(null) ||
+    main.includes("false") ||
+    main === "false"
+  ) {
     return <div className="pleaselogin">Welcome! </div>;
   } else {
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { getPart } from "../api/company";
-import Card from "./Card";
+import Card from "../helpers/Card";
 
 let ticket = localStorage.getItem("ticket");
 
