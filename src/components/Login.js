@@ -52,6 +52,7 @@ function Login({ main, setMain }) {
       <form id="create">
         <input
           className="form-input"
+          type="text"
           id="link"
           value={user}
           placeholder="Enter Username"
