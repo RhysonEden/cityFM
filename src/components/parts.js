@@ -52,7 +52,7 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
     return <div className="pleaselogin">Please Log In To Continue</div>;
   } else if (!ticket) {
     return (
-      <div className="pleaselogin">Please enter Ticket Number to Continue</div>
+      <div className="pleaselogin">Please enter Ticket Numbers to Continue</div>
     );
   } else {
     return (

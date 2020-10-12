@@ -48,6 +48,8 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
 
   const removeTicket = () => {
     localStorage.removeItem("ticket");
+    localStorage.removeItem("cityFm");
+
     window.location.reload();
   };
 
@@ -94,6 +96,7 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
               </>
             ) : (
               <GFTTicket
+                cfm={cfm}
                 display={display}
                 ticket={ticket}
                 setTicket={setTicket}

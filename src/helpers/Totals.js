@@ -24,12 +24,14 @@ const Totals = ({
   finalRate,
   cancelCourse,
   handleSubmit,
+  cfm,
 }) => {
   return (
     <div className="finalrate" name={ticket}>
       <h2 className="itemized" name={ticket}>
-        Ticket # {ticket}
+        GFT Ticket # {ticket}
       </h2>
+      <h2 className="itemized">CFM Ticket # {cfm}</h2>
       {confinedSpace > 0 && (
         <h3 className="itemized" name={confinedSpace}>
           Confined Space = {"$" + Number(confinedSpace).toFixed(2)}

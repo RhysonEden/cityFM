@@ -7,6 +7,7 @@ const GFTTicket = ({
   setTicket,
   ticketButton,
   removeTicket,
+  cfm,
 }) => {
   return (
     <>
@@ -30,7 +31,7 @@ const GFTTicket = ({
         <div className="tickets">
           {display}
           <button className="thecartbtn" onClick={removeTicket}>
-            Clear Ticket
+            Clear Tickets
           </button>
         </div>
       )}

@@ -69,6 +69,7 @@ const Form = ({
   let P1 = Number(extraCostOne);
   const ticket = localStorage.getItem("ticket");
   const user = localStorage.getItem("user");
+  const cfm = localStorage.getItem("cityFm");
 
   const cancelCourse = () => {
     window.location.reload();
@@ -101,7 +102,7 @@ const Form = ({
       misc;
     let preRoundRate = Math.round(hourlyRate * 100) / 100;
     let roundedRate = preRoundRate.toFixed(2);
-    localStorage.setItem("total", total);
+    // localStorage.setItem("total", total);
     setFinalRate(roundedRate);
   };
 
@@ -190,7 +191,7 @@ const Form = ({
     return <div className="pleaselogin">Please Log In To Continue</div>;
   } else if (!ticket) {
     return (
-      <div className="pleaselogin">Please enter Ticket Number to Continue</div>
+      <div className="pleaselogin">Please enter Ticket Numbers to Continue</div>
     );
   } else {
     return (
@@ -245,6 +246,7 @@ const Form = ({
           )}
 
           <Totals
+            cfm={cfm}
             ticket={ticket}
             confinedSpace={confinedSpace}
             blower={blower}

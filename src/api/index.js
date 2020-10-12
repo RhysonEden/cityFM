@@ -8,7 +8,7 @@ export async function loginUser(username, password) {
     });
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
-    localStorage.setItem("id", data.user.id);
+    // localStorage.setItem("id", data.user.id);
     localStorage.setItem("email", data.user.email);
     return data;
   } catch (error) {
@@ -25,7 +25,7 @@ export async function registerUser(username, password, email) {
     });
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
-    localStorage.setItem("id", data.user.id);
+    // localStorage.setItem("id", data.user.id);
     return data;
   } catch (error) {
     throw error;
