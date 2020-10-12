@@ -59,6 +59,7 @@ function Login({ main, setMain }) {
         ></input>
         <input
           className="form-input"
+          type="password"
           id="comment"
           value={password}
           placeholder="Enter Password"
