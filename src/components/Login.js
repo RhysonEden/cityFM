@@ -29,23 +29,12 @@ function Login({ main, setMain }) {
     try {
       loginUser(users, pword).then(() => {
         setUser(username);
-        // getAdmin(username)
         cancelCourse();
       });
     } catch (err) {
       throw alert("Incorrect Username/Password");
     }
   };
-
-  // async function getAdmin(username) {
-  //   const response = await getAdminInfo(username)
-  //   const resp = response.data.name
-  //   resp.forEach(function(item) {
-  //   for (const [key, value] of Object.entries(item)) {
-  //     setMain(`${value}`);
-  //   }
-  // })
-  // }
 
   return (
     <div className="page">
