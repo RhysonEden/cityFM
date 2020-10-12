@@ -519,6 +519,10 @@ button {
     text-shadow: 0px 1px 0px #528009;
   }
 
+  .submit {
+    align-items: center;
+  }
+
   .thecartbtncall {
     border: 1px solid black;
     box-shadow: inset 0px 1px 0px 0px #ffffff;
