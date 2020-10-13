@@ -7,6 +7,10 @@ body {
   width: 100%;
 }
 
+#__react-alert__ div div div {
+  width: auto !important;
+}
+
 .charges {
   margin-left: 75px;
 }
