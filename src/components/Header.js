@@ -19,7 +19,7 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
 
   const ticketButton = () => {
     if (ticket.length !== 11) {
-      alert("Incorrect Ticket Number");
+      alert("Incorrect Guardian Ticket Number");
     } else {
       localStorage.setItem("ticket", ticket);
       window.location.reload();
@@ -28,7 +28,7 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
 
   const CfmTicketButton = () => {
     if (cityFm.length !== 8) {
-      alert("Incorrect Ticket Number");
+      alert("Incorrect CityFM Ticket Number");
     } else {
       localStorage.setItem("cityFm", cityFm);
       window.location.reload();

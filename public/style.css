@@ -521,6 +521,8 @@ button {
 
   .submit {
     align-items: center;
+    justify-content: center;
+    align-self: center;
   }
 
   .thecartbtncall {
