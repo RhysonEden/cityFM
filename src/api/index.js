@@ -8,11 +8,10 @@ export async function loginUser(username, password) {
     });
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
-    // localStorage.setItem("id", data.user.id);
     localStorage.setItem("email", data.user.email);
     return data;
   } catch (error) {
-    throw error;
+    console.error(error);
   }
 }
 

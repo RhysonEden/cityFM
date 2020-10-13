@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { loginUser } from "../api/index";
 import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 function Login({ main, setMain }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [user, setUser] = React.useState(localStorage.getItem("user"));
+  const alert = useAlert();
 
   const users = username.toLowerCase();
   const pword = password.toLowerCase();
@@ -27,12 +29,18 @@ function Login({ main, setMain }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
-      loginUser(users, pword).then(() => {
-        setUser(username);
-        cancelCourse();
+      loginUser(users, pword).then((resp) => {
+        if (resp === undefined) {
+          alert.show("Invalid Username or Password");
+        } else {
+          alert.show(resp.message);
+          setUser(username);
+          cancelCourse();
+        }
       });
     } catch (err) {
-      throw alert("Incorrect Username/Password");
+      console.log(err, "error");
+      throw err;
     }
   };
 
