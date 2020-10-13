@@ -30,6 +30,8 @@
     "nodemailer": "^6.4.13",
     "pg": "^8.3.3",
     "react": "^16.13.1",
+    "react-alert": "^7.0.2",
+    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-moment": "^0.9.7",
     "react-numeric-input": "^2.2.3",

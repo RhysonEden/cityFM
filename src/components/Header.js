@@ -4,7 +4,7 @@ import { getAdminInfo } from "../api/index";
 import CFMTicket from "../helpers/CFMTicket";
 import GFTTicket from "../helpers/GFTTicket";
 import Links from "../helpers/Links";
-
+import { useAlert } from "react-alert";
 function logout() {
   localStorage.clear();
   window.location.reload();
@@ -16,10 +16,10 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
   const cfm = localStorage.getItem("cityFm");
   const [ticket, setTicket] = useState("");
   const [cityFm, setCityFm] = useState("");
-
+  const alert = useAlert();
   const ticketButton = () => {
     if (ticket.length !== 11) {
-      alert("Incorrect Guardian Ticket Number");
+      alert.show("Incorrect Guardian Ticket Number");
     } else {
       localStorage.setItem("ticket", ticket);
       window.location.reload();
@@ -28,7 +28,7 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
 
   const CfmTicketButton = () => {
     if (cityFm.length !== 8) {
-      alert("Incorrect CityFM Ticket Number");
+      alert.show("Incorrect CityFM Ticket Number");
     } else {
       localStorage.setItem("cityFm", cityFm);
       window.location.reload();
