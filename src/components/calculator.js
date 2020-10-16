@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import emailTotal from "../api/index";
 import Checkboxes from "../helpers/checkboxes";
 import email from "../api/index";
@@ -7,6 +7,14 @@ import Inputs from "../helpers/inputs";
 import Consumables from "../helpers/consumables";
 import Totals from "../helpers/Totals";
 import Radio from "../helpers/Radio";
+
+// const refresh = () => {
+//   window.location.reload();
+// };
+
+// useEffect(() => {
+//   refresh();
+// }, []);
 
 const Form = ({
   part,
@@ -201,7 +209,12 @@ const Form = ({
             <u>Rates</u>
           </h2>
           <h3 className="spacebottom">Labor</h3>
-          <Radio setLaborRate={setLaborRate} setTravelRate={setTravelRate} />
+          <Radio
+            setLaborRate={setLaborRate}
+            setTravelRate={setTravelRate}
+            setLaborTotal={setLaborTotal}
+            labor={labor}
+          />
 
           <Inputs
             labor={labor}

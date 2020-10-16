@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { loginUser } from "../api/index";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
+import { useHistory } from "react-router-dom";
 
 function Login({ main, setMain }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [user, setUser] = React.useState(localStorage.getItem("user"));
   const alert = useAlert();
-
+  const history = useHistory();
   const users = username.toLowerCase();
   const pword = password.toLowerCase();
 
@@ -26,15 +27,16 @@ function Login({ main, setMain }) {
     window.location.reload();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      loginUser(users, pword).then((resp) => {
-        if (resp === undefined) {
+      await loginUser(users, pword).then((resp) => {
+        if (!resp) {
           alert.show("Invalid Username or Password");
         } else {
-          alert.show(resp.message);
+          alert.show("Login Successfull");
           setUser(username);
+          history.push("/calculator");
           cancelCourse();
         }
       });

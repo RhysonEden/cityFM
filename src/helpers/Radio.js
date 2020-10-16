@@ -1,19 +1,28 @@
 import React from "react";
 
-const Radio = ({ setLaborRate, setTravelRate }) => {
+const Radio = ({ setLaborRate, setTravelRate, setLaborTotal, labor }) => {
   const radioReg = (e) => {
     setLaborRate(70);
     setTravelRate(Number(87.5).toFixed(2));
+    // if (labor >= 1) {
+    setLaborTotal(70 * labor);
+    // }
   };
 
   const radioOt = (e) => {
     setLaborRate(105);
     setTravelRate(Number(131.25).toFixed(2));
+    // if (labor >= 1) {
+    setLaborTotal(105 * labor);
+    // }
   };
 
   const radioSun = (e) => {
     setLaborRate(140);
     setTravelRate(Number(175).toFixed(2));
+    // if (labor >= 1) {
+    setLaborTotal(140 * labor);
+    // }
   };
   return (
     <form>
