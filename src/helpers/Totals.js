@@ -25,6 +25,8 @@ const Totals = ({
   cancelCourse,
   handleSubmit,
   cfm,
+  nte,
+  upliftAmount,
 }) => {
   return (
     <div className="finalrate" name={ticket}>
@@ -120,9 +122,17 @@ const Totals = ({
         </h3>
       )}
       {finalRate > 0 && (
-        <h2 className="itemizedtotal" name={finalRate}>
-          Trip Total = {"$" + Number(finalRate).toFixed(2)}
-        </h2>
+        <>
+          <h2 className="itemizedtotal" name={finalRate}>
+            Trip Total = {"$" + Number(finalRate).toFixed(2)}
+          </h2>
+          <h2 className="itemizedtotal" name={nte}>
+            Not To Exceed = {"$" + Number(nte).toFixed(2)}
+          </h2>
+          <h2 className="itemizedtotal" name="uplift">
+            Uplift Total = {"$" + Number(upliftAmount).toFixed(2)}
+          </h2>
+        </>
       )}
       {/* </div> */}
       <button className="thecartbtnfinal" onClick={cancelCourse}>

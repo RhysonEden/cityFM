@@ -38,6 +38,7 @@ const App = () => {
   const [moreCharges, setMoreCharges] = useState(0);
   const [standByTimeTotal, setStandByTimeTotal] = useState(0);
   const [value, setValue] = useState(false);
+  const [upliftAmount, setUpliftAmount] = useState(0);
   let admin = localStorage.getItem("user");
 
   if (!admin) {
@@ -88,6 +89,8 @@ const App = () => {
               setTravel={setTravel}
               finalRate={finalRate}
               setFinalRate={setFinalRate}
+              upliftAmount={upliftAmount}
+              setUpliftAmount={setUpliftAmount}
               extraCostOne={extraCostOne}
               setExtraCostOne={setExtraCostOne}
               numberOne={numberOne}
@@ -187,6 +190,8 @@ const App = () => {
               setTravel={setTravel}
               finalRate={finalRate}
               setFinalRate={setFinalRate}
+              upliftAmount={upliftAmount}
+              setUpliftAmount={setUpliftAmount}
               extraCostOne={extraCostOne}
               setExtraCostOne={setExtraCostOne}
               numberOne={numberOne}

@@ -36,6 +36,8 @@ const Form = ({
   setLabor,
   finalRate,
   setFinalRate,
+  upliftAmount,
+  setUpliftAmount,
   extraCostOne,
   setExtraCostOne,
   numberOne,
@@ -70,6 +72,7 @@ const Form = ({
   value,
   setValue,
 }) => {
+  const nte = 250;
   const email = localStorage.getItem("email");
   const total = localStorage.getItem("total");
   const enviroment = 10;
@@ -78,7 +81,6 @@ const Form = ({
   const ticket = localStorage.getItem("ticket");
   const user = localStorage.getItem("user");
   const cfm = localStorage.getItem("cityFm");
-
   const cancelCourse = () => {
     window.location.reload();
   };
@@ -110,7 +112,13 @@ const Form = ({
       misc;
     let preRoundRate = Math.round(hourlyRate * 100) / 100;
     let roundedRate = preRoundRate.toFixed(2);
-    // localStorage.setItem("total", total);
+    let finaleRate = roundedRate - nte;
+
+    if (finaleRate <= 0) {
+      setUpliftAmount(0);
+    } else {
+      setUpliftAmount(finaleRate);
+    }
     setFinalRate(roundedRate);
   };
 
@@ -281,8 +289,10 @@ const Form = ({
             projectManagementTotal={projectManagementTotal}
             standByTimeTotal={standByTimeTotal}
             finalRate={finalRate}
+            upliftAmount={upliftAmount}
             cancelCourse={cancelCourse}
             handleSubmit={handleSubmit}
+            nte={nte}
           />
         </div>
       </>
