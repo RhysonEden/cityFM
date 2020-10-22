@@ -153,7 +153,7 @@ async function createInitialUsers() {
         const chrcharlotteis = await createUser({
           username: "charlotte",
           password: hashedPassword,
-          email: "charlottedispatch@guardianfueltech.com ",
+          email: "charlottedispatch@guardianfueltech.com",
           admin: false,
         });
         resolve();
@@ -197,7 +197,7 @@ async function createInitialUsers() {
         const pensacola = await createUser({
           username: "pensacola",
           password: hashedPassword,
-          email: "gulfcoastdispatch@guardianfueltech.com ",
+          email: "gulfcoastdispatch@guardianfueltech.com",
           admin: false,
         });
         resolve();

@@ -7,6 +7,7 @@ import Inputs from "../helpers/inputs";
 import Consumables from "../helpers/consumables";
 import Totals from "../helpers/Totals";
 import Radio from "../helpers/Radio";
+import { useAlert } from "react-alert";
 
 // const refresh = () => {
 //   window.location.reload();
@@ -72,9 +73,11 @@ const Form = ({
   value,
   setValue,
 }) => {
+  const alert = useAlert();
+
   const nte = 250;
   const email = localStorage.getItem("email");
-  const total = localStorage.getItem("total");
+  // let total = localStorage.getItem("total");
   const enviroment = 10;
   const disposalFee = 1.8;
   let P1 = Number(extraCostOne);
@@ -87,7 +90,6 @@ const Form = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let total = "total is ready";
     let consumables = numberOne * 10;
     let misc = Number(miscPrice);
     let partCost = Number(part);
@@ -179,27 +181,53 @@ const Form = ({
   };
 
   async function handleEmail(e) {
-    if (total) {
+    console.log(finalRate);
+    if (finalRate) {
       e.preventDefault();
-      handleSubmit(e);
+      // handleSubmit(e);
       emailTotal(
         email,
         ticket,
-        Number(disposalTotal).toFixed(2),
+        cfm,
+        Number(confinedSpace).toFixed(2),
+        Number(blower).toFixed(2),
+        Number(calibrationCan).toFixed(2),
+        Number(calibrationTrailer).toFixed(2),
+        Number(truckFee).toFixed(2),
+        Number(waterTrailer).toFixed(2),
+        Number(handPump).toFixed(2),
         Number(miscPrice).toFixed(2),
         Number(P1).toFixed(2),
         Number(laborTotal).toFixed(2),
-        Number(travelTotal).toFixed(2),
+        Number(travelRate).toFixed(2),
         Number(part).toFixed(2),
         Number(consumables).toFixed(2),
         Number(laptop).toFixed(2),
         Number(enviroment).toFixed(2),
-        Number(finalRate).toFixed(2)
+        Number(disposalTotal).toFixed(2),
+        Number(projectManagementTotal).toFixed(2),
+        Number(standByTimeTotal).toFixed(2),
+        Number(finalRate).toFixed(2),
+        Number(nte).toFixed(2),
+        Number(upliftAmount).toFixed(2)
+        // Number(disposalTotal).toFixed(2),
+        // Number(miscPrice).toFixed(2),
+        // Number(P1).toFixed(2),
+        // Number(laborTotal).toFixed(2),
+        // Number(travelTotal).toFixed(2),
+        // Number(part).toFixed(2),
+        // Number(consumables).toFixed(2),
+        // Number(laptop).toFixed(2),
+        // Number(enviroment).toFixed(2),
+        // Number(finalRate).toFixed(2),
+        // Number(upliftAmount).toFixed(2),
+        // Number(nte).toFixed(2)
       );
-      cancelCourse();
-      alert("Email Sent");
+      // cancelCourse();
+      alert.show("Email Sent");
     } else {
-      alert("Hit the total button first!");
+      console.log(finalRate);
+      alert.show("Hit the total button first!");
     }
   }
 
@@ -292,6 +320,7 @@ const Form = ({
             upliftAmount={upliftAmount}
             cancelCourse={cancelCourse}
             handleSubmit={handleSubmit}
+            handleEmail={handleEmail}
             nte={nte}
           />
         </div>

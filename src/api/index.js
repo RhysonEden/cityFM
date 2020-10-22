@@ -34,33 +34,58 @@ export async function registerUser(username, password, email) {
 export default async function emailTotal(
   email,
   ticket,
-  baseFee,
+  cfm,
+  confinedSpace,
+  blower,
+  calibrationCan,
+  calibrationTrailer,
+  truckFee,
+  waterTrailer,
+  handPump,
   miscPrice,
   P1,
   laborTotal,
-  travelTotal,
+  travelRate,
   part,
   consumables,
   laptop,
   enviroment,
-  finalRate
+  disposalTotal,
+  projectManagementTotal,
+  standByTimeTotal,
+  finalRate,
+  nte,
+  upliftAmount
 ) {
   try {
+    console.log("testing");
     const { data } = await axios.post("api/email/email", {
       email,
       ticket,
-      baseFee,
+      cfm,
+      confinedSpace,
+      blower,
+      calibrationCan,
+      calibrationTrailer,
+      truckFee,
+      waterTrailer,
+      handPump,
       miscPrice,
       P1,
       laborTotal,
-      travelTotal,
+      travelRate,
       part,
       consumables,
       laptop,
       enviroment,
+      disposalTotal,
+      projectManagementTotal,
+      standByTimeTotal,
       finalRate,
+      nte,
+      upliftAmount,
     });
-
+    console.log(data);
     return data;
   } catch (error) {
     throw error;

@@ -14,7 +14,9 @@ const nodemailer = require("nodemailer");
 
 emailRouter.post("/email", (req, res) => {
   let messages = req.body;
-  let ticket = req.body.ticket
+  console.log(messages);
+  console.log(messages.cfm);
+  let ticket = req.body.ticket;
   async function main() {
     // create reusable transporter object using the default SMTP transport
     // let transporter = nodemailer.createTransport({
@@ -27,46 +29,68 @@ emailRouter.post("/email", (req, res) => {
     //   },
     // });
 
-//    let transporter = nodemailer.createTransport({
-//         host: "mail.guardianfueltech.com",
-//         port: 465,
-//         secure: true,
-//         auth: {
-//           user: "jgale",
-//           pass: "JG@gft2020",
-//         },
-//       });
+    //    let transporter = nodemailer.createTransport({
+    //         host: "mail.guardianfueltech.com",
+    //         port: 465,
+    //         secure: true,
+    //         auth: {
+    //           user: "jgale",
+    //           pass: "JG@gft2020",
+    //         },
+    //       });
 
-let transporter = nodemailer.createTransport({
-    host: 'mail.guardianfueltech.com', // Office 365 server
-    port: 587,     // secure SMTP
-    secure: false, // false for TLS - as a boolean not string - but the default is false so just remove this completely
-    auth: {
-        user: "jgale",
-        pass: "JG@gft2020",
-    },
-    tls: {
-        ciphers: 'SSLv3'
-    }
-});
-
-    // const transporter = nodemailer.createTransport({
-    //     service: 'gmail',
+    // let transporter = nodemailer.createTransport({
+    //     host: 'mail.guardianfueltech.com', // Office 365 server
+    //     port: 587,     // secure SMTP
+    //     secure: false, // false for TLS - as a boolean not string - but the default is false so just remove this completely
     //     auth: {
-    //       user: 'guardianfueling@gmail.com',
-    //       pass: 'GCGFT2020' 
+    //         user: "jgale",
+    //         pass: "JG@gft2020",
+    //     },
+    //     tls: {
+    //         ciphers: 'SSLv3'
     //     }
-    //   });
+    // });
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "guardianfueling@gmail.com",
+        pass: "GCGFT2020",
+      },
+    });
 
     let info = await transporter.sendMail({
-      from: "CFM Calculator",
-      to: messages.email, 
+      from: "CFM App <guardianfueling@gmail.com>",
+      to: messages.email,
       subject: messages.ticket,
-      html: `Ticket Number = ${ticket} <br> Base Trip Fee = $${req.body.baseFee} <br> Misc Fee = $${req.body.miscPrice} <br> Priority 1 Fee = ${req.body.P1} <br> Labor Total = $${req.body.laborTotal} <br> Travel Total = $${req.body.travelTotal} <br> Parts Total = $${req.body.part} <br> Consumables Total = $${req.body.consumables} <br> Laptop Fee = $${req.body.laptop} <br> Enviromental Fee = $${req.body.enviroment} <br> Final Total = $${req.body.finalRate} `,
+      html: `GFT Ticket Number = ${ticket} <br> 
+      CFM Ticket Number = ${messages.cfm} <br> 
+      Confined Space = $${messages.confinedSpace} <br> 
+      Calibration Can = $${messages.calibrationCan} <br> 
+      Blower Charge = $${messages.blower} <br> 
+      Heavy Truck Fee = $${messages.truckFee} <br> 
+      Calibration Trailer = $${messages.calibrationTrailer} <br> 
+      Hand Pump = $${messages.handPump} <br> 
+      Water Trailer = $${messages.waterTrailer} <br> 
+      Priority 1 = $${messages.P1} <br> 
+      Misc Fees = $${messages.miscPrice} <br> 
+      Laptop Fee = $${messages.laptop} <br> 
+      Consumable Fee = $${messages.consumables} <br> 
+      Enviroment Fee = $${messages.disposalTotal} <br> 
+      Disposal Fee = $${messages.disposalTotal} <br> 
+      Stand By Time = $${messages.standByTimeTotal} <br> 
+      Project Management = $${messages.projectManagementTotal} <br> 
+      Travel Total = $${messages.travelRate} <br> 
+      Labor Total = $${messages.laborTotal} <br> 
+      NTE = $${messages.nte} <br> 
+      Parts Total = $${messages.part} <br> 
+      Trip Total = $${messages.finalRate} <br> 
+      UpLift Amount = $${messages.upliftAmount} <br> 
+`,
     });
 
     console.log("Message sent: %s", info.messageId);
-
   }
 
   main().catch(console.error);

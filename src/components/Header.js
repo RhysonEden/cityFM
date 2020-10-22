@@ -5,6 +5,8 @@ import CFMTicket from "../helpers/CFMTicket";
 import GFTTicket from "../helpers/GFTTicket";
 import Links from "../helpers/Links";
 import { useAlert } from "react-alert";
+import CharacterDropDown from "../components/dropdown";
+
 function logout() {
   localStorage.clear();
   window.location.reload();
@@ -85,6 +87,7 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
         )}
         {user ? (
           <>
+            <CharacterDropDown />
             {!cfm ? (
               <>
                 <CFMTicket

@@ -27,6 +27,7 @@ const Totals = ({
   cfm,
   nte,
   upliftAmount,
+  handleEmail,
 }) => {
   return (
     <div className="finalrate" name={ticket}>
@@ -132,6 +133,9 @@ const Totals = ({
           <h2 className="itemizedtotal" name="uplift">
             Uplift Total = {"$" + Number(upliftAmount).toFixed(2)}
           </h2>
+          {/* <button className="thecartbtnfinal" onClick={handleEmail}>
+            Email
+          </button> */}
         </>
       )}
       {/* </div> */}
@@ -142,9 +146,13 @@ const Totals = ({
       <button className="thecartbtnfinal" onClick={handleSubmit}>
         Total
       </button>
-      {/* <button className="thecartbtnfinal" onClick={handleEmail}>
+      {finalRate > 0 && (
+        <>
+          <button className="thecartbtnfinal" onClick={handleEmail}>
             Email
-          </button> */}
+          </button>
+        </>
+      )}
     </div>
   );
 };
