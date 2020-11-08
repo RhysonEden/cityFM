@@ -16,7 +16,6 @@ companyRouter.get("/", async (req, res, next) => {
 
 companyRouter.get("/parts/:id", async (req, res, next) => {
   const partNumber = req.params.id;
-  console.log(partNumber);
   try {
     const part = await searchPartsNumber(partNumber);
     res.send({ part });

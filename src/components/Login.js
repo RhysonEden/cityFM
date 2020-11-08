@@ -41,7 +41,6 @@ function Login({ main, setMain }) {
         }
       });
     } catch (err) {
-      console.log(err, "error");
       throw err;
     }
   };

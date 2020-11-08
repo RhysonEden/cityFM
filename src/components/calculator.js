@@ -9,14 +9,6 @@ import Totals from "../helpers/Totals";
 import Radio from "../helpers/Radio";
 import { useAlert } from "react-alert";
 
-// const refresh = () => {
-//   window.location.reload();
-// };
-
-// useEffect(() => {
-//   refresh();
-// }, []);
-
 const Form = ({
   part,
   handPump,
@@ -181,10 +173,8 @@ const Form = ({
   };
 
   async function handleEmail(e) {
-    console.log(finalRate);
     if (finalRate) {
       e.preventDefault();
-      // handleSubmit(e);
       emailTotal(
         email,
         ticket,
@@ -210,23 +200,9 @@ const Form = ({
         Number(finalRate).toFixed(2),
         Number(nte).toFixed(2),
         Number(upliftAmount).toFixed(2)
-        // Number(disposalTotal).toFixed(2),
-        // Number(miscPrice).toFixed(2),
-        // Number(P1).toFixed(2),
-        // Number(laborTotal).toFixed(2),
-        // Number(travelTotal).toFixed(2),
-        // Number(part).toFixed(2),
-        // Number(consumables).toFixed(2),
-        // Number(laptop).toFixed(2),
-        // Number(enviroment).toFixed(2),
-        // Number(finalRate).toFixed(2),
-        // Number(upliftAmount).toFixed(2),
-        // Number(nte).toFixed(2)
       );
-      // cancelCourse();
       alert.show("Email Sent");
     } else {
-      console.log(finalRate);
       alert.show("Hit the total button first!");
     }
   }

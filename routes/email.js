@@ -4,18 +4,8 @@ const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
-// const app = apiRouter();
-
-// app.engine("handlebars", exphbs());
-// app.set("view engine", "handlebars");
-
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-
 emailRouter.post("/email", (req, res) => {
   let messages = req.body;
-  console.log(messages);
-  console.log(messages.cfm);
   let ticket = req.body.ticket;
   async function main() {
     // create reusable transporter object using the default SMTP transport
@@ -89,12 +79,9 @@ emailRouter.post("/email", (req, res) => {
       UpLift Amount = $${messages.upliftAmount} <br> 
 `,
     });
-
-    console.log("Message sent: %s", info.messageId);
   }
 
   main().catch(console.error);
-  console.log(req.body);
 });
 
 emailRouter.get("/", (req, res) => {

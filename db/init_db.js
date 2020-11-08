@@ -40,6 +40,7 @@ async function dropTables() {
     console.log("Starting to drop tables...");
     await client.query(`
       DROP TABLE IF EXISTS users;
+      
       `);
     //      DROP TABLE IF EXISTS parts;
     ("Finished dropping tables!");

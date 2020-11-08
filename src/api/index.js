@@ -58,7 +58,6 @@ export default async function emailTotal(
   upliftAmount
 ) {
   try {
-    console.log("testing");
     const { data } = await axios.post("api/email/email", {
       email,
       ticket,
@@ -85,7 +84,6 @@ export default async function emailTotal(
       nte,
       upliftAmount,
     });
-    console.log(data);
     return data;
   } catch (error) {
     throw error;

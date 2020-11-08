@@ -25,7 +25,6 @@ function CharacterDropDown() {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     localStorage.setItem("email", e.target.value);
   };
   return (
