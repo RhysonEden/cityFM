@@ -5,8 +5,8 @@ const Card = ({ message, partlisting, setEvent, setCount, count }) => {
     <div className="page">
       <div className="allco">{message}</div>
       {partlisting.map((part, index) => (
-        <div className="allco" value={index}>
-          <div id={index} className="name">
+        <div className="allco" key={index}>
+          <div id={index} key={index} className="name">
             Part Number:{part.number}
           </div>
           <br />
