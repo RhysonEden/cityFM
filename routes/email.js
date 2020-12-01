@@ -46,7 +46,7 @@ emailRouter.post("/email", (req, res) => {
       service: "gmail",
       auth: {
         user: "guardianfueling@gmail.com",
-        pass: "GCGFT2020",
+        pass: "JG@gft2020",
       },
     });
 

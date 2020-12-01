@@ -79,6 +79,89 @@ async function getUserByUsername(username) {
   }
 }
 
+async function getTicketByNumber(ticket) {
+  try {
+    const { rows } = await client.query(
+      `
+      SELECT *
+      FROM ticket
+      WHERE ticket = $1;
+    `,
+      [ticket]
+    );
+    ("done");
+    if (!rows || !rows.length) return null;
+    const [user] = rows;
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function createTicket({
+  ticket,
+  cfm,
+  space,
+  blower,
+  can,
+  trailer,
+  truck,
+  water,
+  hand,
+  misc,
+  p1,
+  labor,
+  travel,
+  part,
+  consumables,
+  laptop,
+  enviroment,
+  disposal,
+  project,
+  stand,
+  final,
+  nte,
+  uplift,
+}) {
+  try {
+    const result = await client.query(
+      `
+      INSERT INTO ticket(ticket, cfm, space, blower, can, trailer, truck, water, hand, misc, p1, labor, travel, part, consumables, laptop, enviroment, disposal, project, stand, final, nte, uplift)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);
+    `,
+      [
+        ticket,
+        cfm,
+        space,
+        blower,
+        can,
+        trailer,
+        truck,
+        water,
+        hand,
+        misc,
+        p1,
+        labor,
+        travel,
+        part,
+        consumables,
+        laptop,
+        enviroment,
+        disposal,
+        project,
+        stand,
+        final,
+        nte,
+        uplift,
+      ]
+    );
+
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getUser({ username, password }) {
   if (!username || !password) {
     return;
@@ -210,4 +293,6 @@ module.exports = {
   searchPartsNumber,
   getAdminByUsername,
   createPart,
+  getTicketByNumber,
+  createTicket,
 };

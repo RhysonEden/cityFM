@@ -9,6 +9,8 @@ const {
   getAllCompanies,
   getAdminByUsername,
   getUserByUsername,
+  getTicketByNumber,
+  createTicket,
 } = require("./index");
 
 async function createTables() {
@@ -22,6 +24,32 @@ async function createTables() {
           email varchar NOT NULL,
           admin varchar NOT NULL
           );
+        CREATE TABLE ticket (
+          id SERIAL PRIMARY KEY,
+          ticket varchar UNIQUE NOT NULL,
+          cfm varchar UNIQUE NOT NULL,
+          space varchar UNIQUE NOT NULL,
+          blower varchar UNIQUE NOT NULL,
+          can varchar UNIQUE NOT NULL,
+          trailer varchar UNIQUE NOT NULL,
+          truck varchar UNIQUE NOT NULL,
+          water varchar UNIQUE NOT NULL,
+          hand varchar UNIQUE NOT NULL,
+          misc varchar UNIQUE NOT NULL,
+          p1 varchar UNIQUE NOT NULL,
+          labor varchar UNIQUE NOT NULL,
+          travel varchar UNIQUE NOT NULL,
+          part varchar UNIQUE NOT NULL,
+          consumables varchar UNIQUE NOT NULL,
+          laptop varchar UNIQUE NOT NULL,
+          enviroment varchar UNIQUE NOT NULL,
+          disposal varchar UNIQUE NOT NULL,
+          project varchar UNIQUE NOT NULL,
+          stand varchar UNIQUE NOT NULL,
+          final varchar UNIQUE NOT NULL,
+          nte varchar UNIQUE NOT NULL,
+          uplift varchar UNIQUE NOT NULL
+        );
       `);
   } catch (error) {
     throw error;
@@ -40,7 +68,7 @@ async function dropTables() {
     console.log("Starting to drop tables...");
     await client.query(`
       DROP TABLE IF EXISTS users;
-      
+      DROP TABLE IF EXISTS ticket;
       `);
     //      DROP TABLE IF EXISTS parts;
     ("Finished dropping tables!");
@@ -277,6 +305,41 @@ async function createInitialUsers() {
   }
 }
 
+async function createIntialTicket() {
+  try {
+    console.log("Starting to create ticket...");
+    const ticket = await createTicket({
+      ticket: "123456-0089",
+      cfm: 12345678,
+      space: 10,
+      blower: 10,
+      can: 10,
+      trailer: 10,
+      truck: 10,
+      water: 10,
+      hand: 10,
+      misc: 10,
+      p1: 10,
+      labor: 10,
+      travel: 10,
+      part: 10,
+      consumables: 10,
+      laptop: 10,
+      enviroment: 10,
+      disposal: 10,
+      project: 10,
+      stand: 10,
+      final: 10,
+      nte: 10,
+      uplift: 10,
+    });
+    console.log("Finished creating ticket!");
+  } catch (error) {
+    console.error("Error creating ticket!");
+    throw error;
+  }
+}
+
 async function rebuildDB() {
   try {
     client.connect();
@@ -290,6 +353,8 @@ async function testDB() {
     await dropTables();
     await createTables();
     await createInitialUsers();
+    await createIntialTicket();
+    const test = await getTicketByNumber("123456-0089");
     // await createInitialParts();
     // const part = await searchPartsNumber("GCS");
     // const userDavid = await getUserByUsername("david");
@@ -301,6 +366,7 @@ async function testDB() {
     // console.log("username", userDavid, userJames, userChris, main);
     // console.log("users", users);
     // // console.log("part", part);
+    console.log("Ticket =", test);
     console.log("All Complete");
   } catch (error) {
     console.error(error);

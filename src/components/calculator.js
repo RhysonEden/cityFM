@@ -207,6 +207,41 @@ const Form = ({
     }
   }
 
+  // async function storeTicket(e) {
+  //   if (finalRate) {
+  //     e.preventDefault();
+  //     emailTotal(
+  //       email,
+  //       ticket,
+  //       cfm,
+  //       Number(confinedSpace).toFixed(2),
+  //       Number(blower).toFixed(2),
+  //       Number(calibrationCan).toFixed(2),
+  //       Number(calibrationTrailer).toFixed(2),
+  //       Number(truckFee).toFixed(2),
+  //       Number(waterTrailer).toFixed(2),
+  //       Number(handPump).toFixed(2),
+  //       Number(miscPrice).toFixed(2),
+  //       Number(P1).toFixed(2),
+  //       Number(laborTotal).toFixed(2),
+  //       Number(travelRate).toFixed(2),
+  //       Number(part).toFixed(2),
+  //       Number(consumables).toFixed(2),
+  //       Number(laptop).toFixed(2),
+  //       Number(enviroment).toFixed(2),
+  //       Number(disposalTotal).toFixed(2),
+  //       Number(projectManagementTotal).toFixed(2),
+  //       Number(standByTimeTotal).toFixed(2),
+  //       Number(finalRate).toFixed(2),
+  //       Number(nte).toFixed(2),
+  //       Number(upliftAmount).toFixed(2)
+  //     );
+  //     alert.show("Email Sent");
+  //   } else {
+  //     alert.show("Hit the total button first!");
+  //   }
+  // }
+
   if (!user) {
     return <div className="pleaselogin">Please Log In To Continue</div>;
   } else if (!ticket) {
