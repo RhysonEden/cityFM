@@ -136,7 +136,7 @@ async function createInitialUsers() {
     });
     await new Promise((resolve, reject) => {
       bcrypt.hash(
-        "GRC@gft2020",
+        "gc@gft2020",
         SALT_COUNT,
         async function (err, hashedPassword) {
           const callcenter = await createUser({
@@ -151,7 +151,7 @@ async function createInitialUsers() {
     });
     await new Promise((resolve, reject) => {
       bcrypt.hash(
-        "MR@gft2020",
+        "mr@gft2020",
         SALT_COUNT,
         async function (err, hashedPassword) {
           const monica = await createUser({
