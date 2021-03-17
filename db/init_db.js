@@ -69,6 +69,7 @@ async function dropTables() {
     await client.query(`
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS ticket;
+      DROP TABLE IF EXISTS parts;
       `);
     //      DROP TABLE IF EXISTS parts;
     ("Finished dropping tables!");
