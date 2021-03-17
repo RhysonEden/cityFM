@@ -135,26 +135,34 @@ async function createInitialUsers() {
       });
     });
     await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const callcenter = await createUser({
-          username: "gftcenter",
-          password: hashedPassword,
-          email: "Guardianresourcecenter@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
+      bcrypt.hash(
+        "GRC@gft2020",
+        SALT_COUNT,
+        async function (err, hashedPassword) {
+          const callcenter = await createUser({
+            username: "gftcenter",
+            password: hashedPassword,
+            email: "Guardianresourcecenter@guardianfueltech.com",
+            admin: false,
+          });
+          resolve();
+        }
+      );
     });
     await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const monica = await createUser({
-          username: "monica",
-          password: hashedPassword,
-          email: "mriley@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
+      bcrypt.hash(
+        "MR@gft2020",
+        SALT_COUNT,
+        async function (err, hashedPassword) {
+          const monica = await createUser({
+            username: "monica",
+            password: hashedPassword,
+            email: "mriley@guardianfueltech.com",
+            admin: false,
+          });
+          resolve();
+        }
+      );
     });
     console.log("Finished creating users!");
   } catch (error) {
