@@ -2,15 +2,17 @@ const { Client } = require("pg");
 const DB_NAME = "localhost:5432/cityfm";
 const DB_URL =
   process.env.DATABASE_URL || `postgressql://postgres:james@${DB_NAME}`;
-const client = new Client(DB_URL);
+
 const bcrypt = require("bcrypt");
-// const client = new Client({
-//   host: DB_URL,
-//   port: "5432",
-//   username: "james",
-//   password: "kaelyn09",
-//   database: "cod",
-// });
+
+// const client = new Client(DB_URL);
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 async function createUser({ username, password, email, admin }) {
   try {
