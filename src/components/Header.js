@@ -87,7 +87,7 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
         )}
         {user ? (
           <>
-            <CharacterDropDown />
+            {/* <CharacterDropDown /> */}
             {!cfm ? (
               <>
                 <CFMTicket

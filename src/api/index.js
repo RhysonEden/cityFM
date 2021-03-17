@@ -8,7 +8,10 @@ export async function loginUser(username, password) {
     });
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", data.user.username);
-    localStorage.setItem("email", data.user.email);
+    localStorage.setItem(
+      "email",
+      "guardianresourcecenter@guardianfueltech.com"
+    );
     return data;
   } catch (error) {
     console.error(error);

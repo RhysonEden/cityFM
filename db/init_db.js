@@ -69,7 +69,6 @@ async function dropTables() {
     await client.query(`
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS ticket;
-      DROP TABLE IF EXISTS parts;
       `);
     //      DROP TABLE IF EXISTS parts;
     ("Finished dropping tables!");
@@ -88,39 +87,7 @@ async function dropTables() {
 async function createInitialUsers() {
   try {
     console.log("Starting to create users...");
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const tampa = await createUser({
-          username: "tampa",
-          password: hashedPassword,
-          email: "tampadispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const tampa = await createUser({
-          username: "sanford",
-          password: hashedPassword,
-          email: "sanforddispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const tampa = await createUser({
-          username: "atlanta",
-          password: hashedPassword,
-          email: "atlantadispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
+
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
         const david = await createUser({
@@ -169,10 +136,10 @@ async function createInitialUsers() {
     });
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const birmingham = await createUser({
-          username: "birmingham",
+        const callcenter = await createUser({
+          username: "gftcenter",
           password: hashedPassword,
-          email: "Birminghamdispatch@guardianfueltech.com",
+          email: "Guardianresourcecenter@guardianfueltech.com",
           admin: false,
         });
         resolve();
@@ -180,120 +147,10 @@ async function createInitialUsers() {
     });
     await new Promise((resolve, reject) => {
       bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const chrcharlotteis = await createUser({
-          username: "charlotte",
+        const monica = await createUser({
+          username: "monica",
           password: hashedPassword,
-          email: "charlottedispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const columbia = await createUser({
-          username: "columbia",
-          password: hashedPassword,
-          email: "columbiadispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const chris = await createUser({
-          username: "ftmyers",
-          password: hashedPassword,
-          email: "ftmyersdispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const ftlauderdale = await createUser({
-          username: "ftlauderdale",
-          password: hashedPassword,
-          email: "miramardispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const pensacola = await createUser({
-          username: "pensacola",
-          password: hashedPassword,
-          email: "gulfcoastdispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const jacksonville = await createUser({
-          username: "jacksonville",
-          password: hashedPassword,
-          email: "jaxdispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const knoxville = await createUser({
-          username: "knoxville",
-          password: hashedPassword,
-          email: "knoxdispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const nashville = await createUser({
-          username: "nashville",
-          password: hashedPassword,
-          email: "NashvilleDispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const raleigh = await createUser({
-          username: "raleigh",
-          password: hashedPassword,
-          email: "raleighdispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const savannah = await createUser({
-          username: "savannah",
-          password: hashedPassword,
-          email: "Savannahdispatch@guardianfueltech.com",
-          admin: false,
-        });
-        resolve();
-      });
-    });
-    await new Promise((resolve, reject) => {
-      bcrypt.hash("gft2020", SALT_COUNT, async function (err, hashedPassword) {
-        const tallahassee = await createUser({
-          username: "tallahassee",
-          password: hashedPassword,
-          email: "tallydispatch@guardianfueltech.com",
+          email: "mriley@guardianfueltech.com",
           admin: false,
         });
         resolve();
