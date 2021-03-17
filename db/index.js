@@ -7,18 +7,18 @@ const bcrypt = require("bcrypt");
 
 // const client = new Client(DB_URL);
 
-const client = new Client({
-  connectionString:
-    process.env.DATABASE_URL || `postgressql://postgres:james@${DB_NAME}`,
-  ssl: process.env.DATABASE_URL ? true : false,
-});
-
 // const client = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false,
-//   },
+//   connectionString:
+//     process.env.DATABASE_URL || `postgressql://postgres:james@${DB_NAME}`,
+//   ssl: process.env.DATABASE_URL ? true : false,
 // });
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 async function createUser({ username, password, email, admin }) {
   try {
