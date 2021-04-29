@@ -6,8 +6,8 @@ const CFMTicket = ({ CfmTicketButton, setCityFm, cityFm }) => {
       <input
         className="search"
         value={cityFm}
-        onChange={(event) => {
-          setCityFm(event.target.value);
+        onChange={(e) => {
+          setCityFm(e.target.value);
         }}
         type="text"
         placeholder="Enter CFM Ticket"

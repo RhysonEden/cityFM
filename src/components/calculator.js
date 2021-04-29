@@ -80,8 +80,8 @@ const Form = ({
     window.location.reload();
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     let consumables = numberOne * 10;
     let misc = Number(miscPrice);
     let partCost = Number(part);
@@ -121,14 +121,14 @@ const Form = ({
     setMiscPrice(e.target.value);
   };
 
-  const addNumberOne = (event) => {
-    event.preventDefault();
+  const addNumberOne = (e) => {
+    e.preventDefault();
     setNumberOne(numberOne + 1);
     setConsumables((numberOne + 1) * 10);
   };
 
-  const minusNumberOne = (event) => {
-    event.preventDefault();
+  const minusNumberOne = (e) => {
+    e.preventDefault();
     if (numberOne >= 1) {
       setNumberOne(numberOne - 1);
       setConsumables((numberOne - 1) * 10);

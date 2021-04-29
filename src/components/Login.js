@@ -13,12 +13,12 @@ function Login({ main, setMain }) {
   const users = username.toLowerCase();
   const pword = password.toLowerCase();
 
-  const changeUser = (event) => {
-    setUsername(event.target.value);
+  const changeUser = (e) => {
+    setUsername(e.target.value);
   };
 
-  const changePassword = (event) => {
-    setPassword(event.target.value);
+  const changePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   const cancelCourse = () => {
@@ -27,8 +27,8 @@ function Login({ main, setMain }) {
     window.location.reload();
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await loginUser(users, pword).then((resp) => {
         if (!resp) {

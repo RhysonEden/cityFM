@@ -16,8 +16,8 @@ const GFTTicket = ({
           <input
             className="search"
             value={ticket}
-            onChange={(event) => {
-              setTicket(event.target.value);
+            onChange={(e) => {
+              setTicket(e.target.value);
             }}
             type="text"
             placeholder="Enter Ticket Number"

@@ -12,11 +12,11 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
   const [count, setCount] = useState(0);
   const user = sessionStorage.getItem("user");
 
-  const setPrice = (event) => {
-    event.preventDefault();
+  const setPrice = (e) => {
+    e.preventDefault();
     setPartPrice(part);
-    setPartName(event.target.name + " " + partname);
-    setPart(Number(part) + Number(event.target.value));
+    setPartName(e.target.name + " " + partname);
+    setPart(Number(part) + Number(e.target.value));
   };
 
   function setEvent(number, price) {
@@ -24,15 +24,15 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
     setPart(Number(price) + Number(part));
   }
 
-  const testButton = (event) => {
-    event.preventDefault();
+  const testButton = (e) => {
+    e.preventDefault();
     setPart(["0"]);
     setCount(0);
   };
 
-  const searchSubmit = (event) => {
+  const searchSubmit = (e) => {
     setPartListing([]);
-    event.preventDefault();
+    e.preventDefault();
     if (searchInput >= 0) {
       setMessage("Please Enter A Part Number");
     } else {
@@ -64,8 +64,8 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
                 <input
                   className="search"
                   value={searchInput}
-                  onChange={(event) => {
-                    setSearchInput(event.target.value);
+                  onChange={(e) => {
+                    setSearchInput(e.target.value);
                   }}
                   type="text"
                   placeholder="Search Part Numbers"

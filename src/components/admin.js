@@ -13,20 +13,20 @@ const Admin = ({ main }) => {
   const [password2, setPassword2] = useState("");
   const [adminname, setUser3] = useState("");
 
-  const handleRegis = (event) => {
-    event.preventDefault();
+  const handleRegis = (e) => {
+    e.preventDefault();
     registerUser(user, password, email);
     cancelCourse();
   };
 
-  const handleUpdate = (event) => {
-    event.preventDefault();
+  const handleUpdate = (e) => {
+    e.preventDefault();
     userUpdate(username, password2);
     cancelCourse();
   };
 
-  const handleAdmin = (event) => {
-    event.preventDefault();
+  const handleAdmin = (e) => {
+    e.preventDefault();
     adminUpdate(adminname, checkedOne);
     cancelCourse();
   };
@@ -40,28 +40,28 @@ const Admin = ({ main }) => {
     setPassword2("");
   };
 
-  const changeUser2 = (event) => {
-    setUser2(event.target.value);
+  const changeUser2 = (e) => {
+    setUser2(e.target.value);
   };
 
-  const changeUser3 = (event) => {
-    setUser3(event.target.value);
+  const changeUser3 = (e) => {
+    setUser3(e.target.value);
   };
 
-  const changePassword2 = (event) => {
-    setPassword2(event.target.value);
+  const changePassword2 = (e) => {
+    setPassword2(e.target.value);
   };
 
-  const changeUser = (event) => {
-    setUser(event.target.value);
+  const changeUser = (e) => {
+    setUser(e.target.value);
   };
 
-  const changePassword = (event) => {
-    setPassword(event.target.value);
+  const changePassword = (e) => {
+    setPassword(e.target.value);
   };
 
-  const changeEmail = (event) => {
-    setEmail(event.target.value);
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   if (
