@@ -68,14 +68,14 @@ const Form = ({
   const alert = useAlert();
 
   const nte = 250;
-  const email = localStorage.getItem("email");
-  // let total = localStorage.getItem("total");
+  const email = sessionStorage.getItem("email");
+  // let total = sessionStorage.getItem("total");
   const enviroment = 10;
   const disposalFee = 1.8;
   let P1 = Number(extraCostOne);
-  const ticket = localStorage.getItem("ticket");
-  const user = localStorage.getItem("user");
-  const cfm = localStorage.getItem("cityFm");
+  const ticket = sessionStorage.getItem("ticket");
+  const user = sessionStorage.getItem("user");
+  const cfm = sessionStorage.getItem("cityFm");
   const cancelCourse = () => {
     window.location.reload();
   };

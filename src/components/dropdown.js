@@ -25,7 +25,7 @@
 
 //   const handleChange = (e) => {
 //     e.preventDefault();
-//     localStorage.setItem("email", e.target.value);
+//     sessionStorage.setItem("email", e.target.value);
 //   };
 //   return (
 //     <select onChange={handleChange}>

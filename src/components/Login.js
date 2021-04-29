@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 function Login({ main, setMain }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [user, setUser] = React.useState(localStorage.getItem("user"));
+  const [user, setUser] = React.useState(sessionStorage.getItem("user"));
   const alert = useAlert();
   const history = useHistory();
   const users = username.toLowerCase();

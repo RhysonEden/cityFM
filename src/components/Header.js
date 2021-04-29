@@ -8,14 +8,14 @@ import { useAlert } from "react-alert";
 import CharacterDropDown from "../components/dropdown";
 
 function logout() {
-  localStorage.clear();
+  sessionStorage.clear();
   window.location.reload();
 }
 
 function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
-  const user = localStorage.getItem("user");
-  const display = localStorage.getItem("ticket");
-  const cfm = localStorage.getItem("cityFm");
+  const user = sessionStorage.getItem("user");
+  const display = sessionStorage.getItem("ticket");
+  const cfm = sessionStorage.getItem("cityFm");
   const [ticket, setTicket] = useState("");
   const [cityFm, setCityFm] = useState("");
   const alert = useAlert();
@@ -23,7 +23,7 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
     if (ticket.length !== 11) {
       alert.show("Incorrect Guardian Ticket Number");
     } else {
-      localStorage.setItem("ticket", ticket);
+      sessionStorage.setItem("ticket", ticket);
       window.location.reload();
     }
   };
@@ -32,13 +32,13 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
     if (cityFm.length !== 8) {
       alert.show("Incorrect CityFM Ticket Number");
     } else {
-      localStorage.setItem("cityFm", cityFm);
+      sessionStorage.setItem("cityFm", cityFm);
       window.location.reload();
     }
   };
 
   async function getAdmin() {
-    const username = localStorage.getItem("user");
+    const username = sessionStorage.getItem("user");
     const response = await getAdminInfo(username);
     const resp = response.data.name;
     resp.forEach(function (item) {
@@ -49,8 +49,8 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
   }
 
   const removeTicket = () => {
-    localStorage.removeItem("ticket");
-    localStorage.removeItem("cityFm");
+    sessionStorage.removeItem("ticket");
+    sessionStorage.removeItem("cityFm");
 
     window.location.reload();
   };

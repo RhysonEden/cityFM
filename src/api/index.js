@@ -6,9 +6,9 @@ export async function loginUser(username, password) {
       username,
       password,
     });
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", data.user.username);
-    localStorage.setItem(
+    sessionStorage.setItem("token", data.token);
+    sessionStorage.setItem("user", data.user.username);
+    sessionStorage.setItem(
       "email",
       "guardianresourcecenter@guardianfueltech.com"
     );
@@ -25,9 +25,9 @@ export async function registerUser(username, password, email) {
       password,
       email,
     });
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", data.user.username);
-    // localStorage.setItem("id", data.user.id);
+    sessionStorage.setItem("token", data.token);
+    sessionStorage.setItem("user", data.user.username);
+    // sessionStorage.setItem("id", data.user.id);
     return data;
   } catch (error) {
     throw error;
@@ -121,7 +121,7 @@ export async function getUserInfo() {
   try {
     const user = await axios.get("/api/users/getUserInfo", {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     });
     return user;

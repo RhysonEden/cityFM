@@ -5,7 +5,7 @@ const IdleTimerContainer = () => {
   const idleTimerRef = useRef(null);
 
   const onIdle = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     window.location.reload();
     console.log("user is idle");
   };

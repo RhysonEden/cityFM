@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getPart } from "../api/company";
 import Card from "../helpers/Card";
 
-let ticket = localStorage.getItem("ticket");
+let ticket = sessionStorage.getItem("ticket");
 
 const Company = ({ searchInput, setSearchInput, part, setPart }) => {
   const [message, setMessage] = useState("");
@@ -10,7 +10,7 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
   const [partname, setPartName] = useState("");
   const [partprice, setPartPrice] = useState("");
   const [count, setCount] = useState(0);
-  const user = localStorage.getItem("user");
+  const user = sessionStorage.getItem("user");
 
   const setPrice = (event) => {
     event.preventDefault();

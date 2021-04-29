@@ -8,11 +8,6 @@ import Footer from "./footer";
 import { BrowserRouter as Brouter, Switch } from "react-router-dom";
 import IdleTimerContainer from "./IdleTimerContainer";
 
-window.addEventListener("beforeunload", function (e) {
-  // localStorage.clear();
-  console.log("yup not gonna work");
-});
-
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
   const [part, setPart] = useState(["0"]);
@@ -45,7 +40,7 @@ const App = () => {
   const [standByTimeTotal, setStandByTimeTotal] = useState(0);
   const [value, setValue] = useState(false);
   const [upliftAmount, setUpliftAmount] = useState(0);
-  let admin = localStorage.getItem("user");
+  let admin = sessionStorage.getItem("user");
 
   if (!admin) {
     return (
