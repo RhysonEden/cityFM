@@ -34,6 +34,7 @@
     "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.13.1",
+    "react-idle-timer": "^4.6.1",
     "react-moment": "^0.9.7",
     "react-numeric-input": "^2.2.3",
     "react-radio-buttons": "^1.2.2",

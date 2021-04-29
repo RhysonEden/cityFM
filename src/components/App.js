@@ -6,6 +6,12 @@ import Admin from "./admin";
 import Login from "./Login";
 import Footer from "./footer";
 import { BrowserRouter as Brouter, Switch } from "react-router-dom";
+import IdleTimerContainer from "./IdleTimerContainer";
+
+window.addEventListener("beforeunload", function (e) {
+  // localStorage.clear();
+  console.log("yup not gonna work");
+});
 
 const App = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -140,6 +146,7 @@ const App = () => {
           </Switch>{" "}
           <Footer />
         </div>
+        <IdleTimerContainer />
       </Brouter>
     );
   } else {
@@ -240,6 +247,7 @@ const App = () => {
             />
           </Switch>{" "}
           <Footer />
+          <IdleTimerContainer />
         </div>
       </Brouter>
     );
