@@ -50,12 +50,6 @@ async function createTables() {
           nte varchar UNIQUE NOT NULL,
           uplift varchar UNIQUE NOT NULL
         );
-        CREATE TABLE parts (
-          id SERIAL PRIMARY KEY,
-          number varchar NOT NULL,
-          descr varchar NOT NULL,
-          price varchar NOT NULL
-          );
       `);
   } catch (error) {
     throw error;
@@ -75,7 +69,6 @@ async function dropTables() {
     await client.query(`
       DROP TABLE IF EXISTS users;
       DROP TABLE IF EXISTS ticket;
-      DROP TABLE IF EXISTS parts;
       `);
     //      DROP TABLE IF EXISTS parts;
     ("Finished dropping tables!");
@@ -125,7 +118,7 @@ async function createInitialUsers() {
           username: "james",
           password: hashedPassword,
           email: "jgale@guardianfueltech.com",
-          admin: false,
+          admin: true,
         });
         resolve();
       });
@@ -165,7 +158,7 @@ async function createInitialUsers() {
             username: "monica",
             password: hashedPassword,
             email: "mriley@guardianfueltech.com",
-            admin: false,
+            admin: true,
           });
           resolve();
         }

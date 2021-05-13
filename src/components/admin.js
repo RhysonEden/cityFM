@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { registerUser, userUpdate, adminUpdate } from "../api";
 import Checkbox from "../helpers/checkbox";
+import { getAdminInfo } from "../api";
 
-const Admin = ({ main }) => {
-  // const [admin, setAdmin] = useState(main);
+const Admin = () => {
+  const capital = sessionStorage.getItem("user");
+  const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -12,6 +14,16 @@ const Admin = ({ main }) => {
   const [username, setUser2] = useState("");
   const [password2, setPassword2] = useState("");
   const [adminname, setUser3] = useState("");
+
+  useEffect(() => {
+    getAdminInfo(capital).then((resp) => {
+      console.log(resp.data.name);
+      const info = resp.data.name;
+      if (info === true) {
+        setAdmin(true);
+      }
+    });
+  }, []);
 
   const handleRegis = (e) => {
     e.preventDefault();
@@ -64,12 +76,7 @@ const Admin = ({ main }) => {
     setEmail(e.target.value);
   };
 
-  if (
-    main.includes(false) ||
-    main.includes(null) ||
-    main.includes("false") ||
-    main === "false"
-  ) {
+  if (admin === false) {
     return <div className="pleaselogin">Welcome! </div>;
   } else {
     return (

@@ -41,11 +41,11 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
     const username = sessionStorage.getItem("user");
     const response = await getAdminInfo(username);
     const resp = response.data.name;
-    resp.forEach(function (item) {
-      for (const [key, value] of Object.entries(item)) {
-        setMain(`${value}`);
-      }
-    });
+    // resp.forEach(function (item) {
+    //   for (const [key, value] of Object.entries(item)) {
+    //     setMain(`${value}`);
+    //   }
+    // });
   }
 
   const removeTicket = () => {
@@ -55,9 +55,9 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
     window.location.reload();
   };
 
-  useEffect(() => {
-    getAdmin();
-  }, []);
+  // useEffect(() => {
+  //   getAdmin();
+  // }, []);
 
   return (
     <>

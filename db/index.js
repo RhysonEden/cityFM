@@ -48,6 +48,7 @@ async function createPart({ number, descr, price }) {
 
 async function getAdminByUsername(username) {
   try {
+    let end;
     const { rows } = await client.query(
       `
       SELECT admin 
@@ -56,7 +57,16 @@ async function getAdminByUsername(username) {
     `,
       [username]
     );
-    return rows;
+    Object.values(rows).forEach((key) => {
+      console.log(key.admin);
+      if (key.admin === "true") {
+        return (end = true);
+      } else {
+        return (end = false);
+      }
+    });
+    console.log(end);
+    return end;
   } catch (error) {
     throw error;
   }
