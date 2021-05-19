@@ -12,6 +12,11 @@ input[type="text"],
   font-size: 1em;
 }
 
+.thecartbtn {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 #__react-alert__ div div div {
   width: auto !important;
 }

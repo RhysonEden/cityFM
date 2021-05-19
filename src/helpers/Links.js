@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Links = () => {
   return (
-    <div>
+    <div className="space">
       <Link to="/company">
         <button type="button" className="thecartbtn">
           Parts
