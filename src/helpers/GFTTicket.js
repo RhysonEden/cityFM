@@ -23,14 +23,14 @@ const GFTTicket = ({
             placeholder="Enter Ticket Number"
             required
           />
-          <button className="thecartbtn" onClick={ticketButton}>
-            Submit Ticket
+          <button className="thecartbtnticket" onClick={ticketButton}>
+            Submit GFT Ticket
           </button>
         </div>
       ) : (
         <div className="tickets">
           {display}
-          <button className="thecartbtn" onClick={removeTicket}>
+          <button className="thecartbtnclear" onClick={removeTicket}>
             Clear Tickets
           </button>
         </div>

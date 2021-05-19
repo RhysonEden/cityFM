@@ -13,7 +13,7 @@ const CFMTicket = ({ CfmTicketButton, setCityFm, cityFm }) => {
         placeholder="Enter CFM Ticket"
         required
       />
-      <button className="thecartbtn" onClick={CfmTicketButton}>
+      <button className="thecartbtnticket" onClick={CfmTicketButton}>
         Submit CFM Ticket
       </button>
     </div>

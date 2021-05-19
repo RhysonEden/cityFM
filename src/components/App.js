@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "./calculator";
 import Company from "./parts";
 import Header from "./Header";
@@ -139,7 +139,6 @@ const App = () => {
               setMain={setMain}
             />
           </Switch>{" "}
-          <Footer />
         </div>
         <IdleTimerContainer />
       </Brouter>
@@ -241,7 +240,6 @@ const App = () => {
               setMain={setMain}
             />
           </Switch>{" "}
-          <Footer />
           <IdleTimerContainer />
         </div>
       </Brouter>

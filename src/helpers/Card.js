@@ -30,7 +30,7 @@ const Card = ({ message, partlisting, setEvent, setCount, count }) => {
             value={part.price}
             name={part.number}
           >
-            Click to add ${part.price} to total
+            Add ${part.price}
           </button>
         </div>
       ))}

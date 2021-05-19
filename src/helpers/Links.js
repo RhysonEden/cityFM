@@ -11,7 +11,7 @@ const Links = () => {
       </Link>
       <Link to="/calculator">
         <button type="button" className="thecartbtn">
-          Labor and Parts Totals
+          Totals
         </button>
       </Link>
       <Link to="/">

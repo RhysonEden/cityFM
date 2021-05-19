@@ -74,13 +74,13 @@ const Company = ({ searchInput, setSearchInput, part, setPart }) => {
                 <button className="thecartbtn" onClick={searchSubmit}>
                   Submit
                 </button>
-                <div>
-                  <button className="thecartbtn" onClick={testButton}>
-                    Clear Parts Total
+                <div className="test">
+                  <div>Parts Total = ${part}</div>
+                  <div>Number of Parts : {count}</div>
+                  <button className="thecartbtnclear" onClick={testButton}>
+                    Clear Total
                   </button>
                 </div>
-                <div>Parts Total = ${part}</div>
-                <div>Number of Parts : {count}</div>
               </div>
               <div className="td" id="s-cover"></div>
             </div>

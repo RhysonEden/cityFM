@@ -14,6 +14,7 @@ function logout() {
 
 function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
   const user = sessionStorage.getItem("user");
+  // const user = capital.charAt(0).toUpperCase() + capital.slice(1);
   const display = sessionStorage.getItem("ticket");
   const cfm = sessionStorage.getItem("cityFm");
   const [ticket, setTicket] = useState("");
@@ -63,9 +64,9 @@ function Header({ searchInput, setSearchInput, part, setPart, main, setMain }) {
     <>
       <div className="header">
         <h1 className="cod">City FM Calculator</h1>
-        <button className="thecartbtncall">
-          <a href="tel:9042031631">Call CityFM</a>
-        </button>
+        {/* <button className="thecartbtncall"> */}
+        <div className="cfm">Call CityFM - (904) 203-1631</div>
+        {/* </button> */}
         <br />
         {user ? (
           <>

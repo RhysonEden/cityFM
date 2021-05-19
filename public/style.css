@@ -1,10 +1,15 @@
 body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 1.2em;
   color: #333;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+}
+
+input[type="text"],
+[type="number"] {
+  font-size: 1em;
 }
 
 #__react-alert__ div div div {
@@ -75,11 +80,14 @@ body {
   margin-left: 5px;
 }
 
-.cod {
+.cod,
+.cfm {
   color: white;
 }
 
 .search {
+  height: 40px;
+  width: 250px;
   border: 1px solid black;
 }
 
@@ -111,27 +119,20 @@ body {
   margin-left: 50px;
 }
 
-.thecartbtncart {
-  align-items: center;
-  align-self: center;
-  justify-content: center;
-}
-
 .thecartbtnfinal {
-  border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
-  background-color: white;
-  border-radius: 6px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
   cursor: pointer;
-  color: black;
-
+  color: #3a8a9e;
   font-family: Arial;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 2px 24px;
+  font-size: 17px;
+  padding: 7px 25px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #528009;
+  text-shadow: 0px 1px 0px #e1e2ed;
   width: 115px;
   height: 30px;
 }
@@ -141,23 +142,61 @@ body {
 .thecartbtn,
 .userNameLogout > button,
 .logout,
-.account {
-  border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
-  background-color: white;
-  border-radius: 6px;
+.account,
+.thecartbtnclear,
+.thecartbtnticket {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
   cursor: pointer;
-  color: black;
-
+  color: #3a8a9e;
   font-family: Arial;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 24px;
+  font-size: 17px;
+  padding: 7px 25px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #528009;
+  text-shadow: 0px 1px 0px #e1e2ed;
+  width: 115px;
+  height: 30px;
 }
-
+.thecartbtncart:hover,
+.submit:hover,
+.thecartbtn:hover,
+.userNameLogout > button:hover,
+.logout:hover,
+.account:hover,
+.thecartbtnfinal:hover,
+.thecartbtnclear:hover,
+.thecartbtnticket:hover {
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  background-color: #bab1ba;
+}
+.thecartbtncart:active,
+.submit:active,
+.thecartbtn:active,
+.userNameLogout > button:active,
+.logout:active,
+.account:active,
+.thecartbtnfinal:active,
+.thecartbtnclear:active,
+.thecartbtnticket:active {
+  position: relative;
+  top: 1px;
+}
+.thecartbtnclear {
+  width: 175px;
+}
+.thecartbtncart {
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 175px;
+}
+.thecartbtnticket {
+  width: 200px;
+}
 .check {
   font-size: 20px;
 }
@@ -288,7 +327,7 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  height: 200px;
+  height: 300px;
   background: #134a7a;
   position: sticky;
   top: 0;
@@ -338,7 +377,7 @@ body {
   flex-direction: row;
   text-align: center;
   width: 100%;
-  height: 100px;
+  height: 200px;
   background: white;
   position: sticky;
   top: 175px;
@@ -428,7 +467,13 @@ button {
     justify-content: center;
     /* text-align: center; */
   }
-
+  .cod {
+    font-size: 25px;
+  }
+  .cfm,
+  .finalrate {
+    font-size: 14px;
+  }
   .center {
     display: inline-block;
     border: 1px solid red;
@@ -503,32 +548,45 @@ button {
     margin-left: 15px;
   }
 
+  .thecartbtncart,
   .submit,
   .thecartbtn,
   .userNameLogout > button,
-  .account {
+  .logout,
+  .account,
+  .thecartbtnclear,
+  .thecartbtnticket {
     border: 1px solid black;
-    box-shadow: inset 0px 1px 0px 0px #ffffff;
-    background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
-    background-color: white;
-    border-radius: 6px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+    background-color: #ededed;
+    border-radius: 15px;
+    border: 1px solid #d6bcd6;
+    display: inline-block;
     cursor: pointer;
-    color: black;
-
+    color: #3a8a9e;
     font-family: Arial;
     font-size: 10px;
-    font-weight: bold;
     padding: 2px 24px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #528009;
+    text-shadow: 0px 1px 0px #e1e2ed;
+    width: 25%;
   }
-
+  .thecartbtnticket,
+  .thecartbtnclear {
+    width: 35%;
+  }
+  .test {
+    margin-top: 10px;
+  }
   .submit {
     align-items: center;
     justify-content: center;
     align-self: center;
   }
-
+  .search {
+    width: 70%;
+  }
   .thecartbtncall {
     border: 1px solid black;
     box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -561,13 +619,14 @@ button {
   }
 
   .allco {
+    font-size: 12px;
     display: flex;
     flex-wrap: wrap;
     background: #fff957;
     border: 1px solid black;
     width: 100%;
-    margin-top: 1px;
-    margin-bottom: 1px;
+    margin-top: 3px;
+    margin-bottom: 3px;
   }
   .qty-minus {
     margin: 10px;
@@ -677,6 +736,12 @@ button {
     border: 1px solid black;
     margin-top: 1px;
     margin-bottom: 1px;
+  }
+  .search {
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 1px;
   }
 }
 
