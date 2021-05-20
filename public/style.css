@@ -234,19 +234,19 @@ input[type="text"],
 
 .thecartbtnminus,
 .thecartbtnadd {
-  border: 1px solid black;
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to top, #ffffff 5%, #134a7a 100%);
-  background-color: white;
-  border-radius: 6px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
   cursor: pointer;
-  color: black;
+  color: #3a8a9e;
   font-family: Arial;
   font-size: 10px;
-  font-weight: bold;
-  padding: 2px 24px;
+  padding: 7px 25px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #528009;
+  text-shadow: 0px 1px 0px #e1e2ed;
 }
 .body,
 .page,
@@ -271,8 +271,17 @@ input[type="text"],
 }
 
 .miscitems {
-  justify-content: space-around;
-  width: 15px;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  /* justify-content: space-around; */
+  /* width: 5%; */
+}
+.miscitems > input {
+  text-align: center;
+  font-size: 17px;
+  margin-left: 10px;
 }
 .company {
   border: 10px solid black;
@@ -404,6 +413,7 @@ body {
   height: 50px;
   display: flex;
   flex-wrap: wrap;
+  font-size: 1em;
 }
 .ps {
   width: 100%;
@@ -461,6 +471,14 @@ button {
   input[type="email"],
   input[type="tel"],
   input[type="url"] {
+    font-size: 16px;
+  }
+
+  .miscitems {
+    margin-left: 195px;
+  }
+  .miscitems > input {
+    text-align: center;
     font-size: 16px;
   }
 
@@ -579,7 +597,7 @@ button {
   }
   .thecartbtnticket,
   .thecartbtnclear {
-    width: 35%;
+    width: 25%;
   }
   .test {
     margin-top: 10px;
@@ -590,7 +608,15 @@ button {
     align-self: center;
   }
   .search {
-    width: 70%;
+    width: 50%;
+  }
+  .tickets {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
   }
   .thecartbtncall {
     border: 1px solid black;
