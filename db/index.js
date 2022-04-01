@@ -6,7 +6,7 @@ const DB_URL =
 const bcrypt = require("bcrypt");
 
 // const client = new Client(DB_URL);
-
+//
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
