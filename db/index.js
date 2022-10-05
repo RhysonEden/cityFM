@@ -30,6 +30,8 @@ async function createUser({ username, password, email, admin }) {
   }
 }
 
+//
+
 async function createPart({ number, descr, price }) {
   try {
     const result = await client.query(
